@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_local_hospital_black_36dp"
+        android:title="@null"/>
+
+    <item
+        android:enabled="false"
+        android:title="@null" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_person_pin_black_36dp"
+        android:title="@null" />
+
+</menu>

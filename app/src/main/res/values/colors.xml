@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#448ef9</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorOnPrimary">#6DA8FF</color>
+    <color name="colorRipple">#BADCFF</color>
+    <color name="colorAccent">#448ef9</color>
+    <color name="colorBackgroundLight">#F9FBFF</color>
+    <color name="colorFontDark">#000000</color>
+    <color name="colorNavigationBottomBar">#FFFFFF</color>
+
+    <color name="colorBottomFont">#FFFFFF</color>
+</resources>

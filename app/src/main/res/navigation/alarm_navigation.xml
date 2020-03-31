@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/alarm_navigation"
+    app:startDestination="@id/alarmFragment">
+    <fragment
+        android:id="@+id/alarmFragment"
+        android:name="com.ai.covid19.tracking.android.ui.check.AlarmFragment"
+        android:label="AlarmFragment"
+        tools:layout="@layout/fragment_alarm" >
+        <action
+            android:id="@+id/action_alarmFragment_to_check1Fragment"
+            app:destination="@id/check1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/check1Fragment"
+        android:name="com.ai.covid19.tracking.android.ui.check.Check1Fragment"
+        android:label="Check1Fragment" />
+</navigation>

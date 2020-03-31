@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/avenir_book</item>
+        <item name="background">@color/colorBackgroundLight</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.Large</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Medium</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Small</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorPrimaryDark</item>
+        <item name="colorOnSecondary">@color/colorNavigationBottomBar</item>
+    </style>
+
+    <style name="TextAppearance.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/avenir_black</item>
+        <item name="android:textColor">@color/colorFontDark</item>
+        <item name="height">@dimen/activity_txt_high_title_1</item>
+    </style>
+
+    <style name="TextAppearance.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/avenir_medium</item>
+        <item name="android:textColor">@color/colorFontDark</item>
+        <item name="height">@dimen/activity_txt_high_title_2</item>
+    </style>
+
+    <style name="TextAppearance.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/avenir_book</item>
+        <item name="android:textColor">@color/colorFontDark</item>
+        <item name="height">@dimen/activity_txt_high_paragraph</item>
+    </style>
+
+    <style name="TextAppearance.BlueSmall" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/avenir_book</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="height">@dimen/activity_txt_high_paragraph</item>
+    </style>
+
+    <style name="TextAppearance.BlueButtonSmall" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/avenir_book</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorBackgroundLight</item>
+        <item name="android:elevation">@dimen/button_elevation</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:maxHeight">@dimen/button_height</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.BlueSmall</item>
+        <item name="android:textColor">@color/colorBottomFont</item>
+        <item name="height">@dimen/activity_txt_high_paragraph</item>
+    </style>
+
+    <style name="GeneralCardView">
+        <item name="android:layout_marginBottom">@dimen/activity_txt_margin_section</item>
+        <item name="android:layout_marginTop">@dimen/activity_txt_margin_section</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">3dp</item>
+        <item name="contentPadding">4dp</item>
+        <item name="contentPaddingBottom">10dp</item>
+        <item name="contentPaddingTop">14dp</item>
+    </style>
+
+</resources>
