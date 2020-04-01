@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_check_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PatientCheckActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/fragment_margin"
+        android:background="@color/colorBackgroundLight"
+        android:padding="@dimen/fragment_padding_extended">
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+                    android:layout_column="1"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:text="@string/check_2_q_1"
+                    android:textAppearance="@style/TextAppearance.Large" />
+            <RadioGroup android:transitionGroup="true">
+
+                <RadioButton
+                    android:id="@+id/radio_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_1_a_1"
+                    android:textAppearance="@style/TextAppearance.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_1_a_2"
+                    android:textAppearance="@style/TextAppearance.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_1_a_3"
+                    android:textAppearance="@style/TextAppearance.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_1_a_4"
+                    android:textAppearance="@style/TextAppearance.Small" />
+            </RadioGroup>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+                    android:layout_column="1"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:text="@string/check_2_q_2"
+                    android:textAppearance="@style/TextAppearance.Large" />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:transitionGroup="true">
+
+                <RadioButton
+                    android:id="@+id/radio_2_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_2_a_1"
+                    android:textAppearance="@style/TextAppearance.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_2_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_2_a_2"
+                    android:textAppearance="@style/TextAppearance.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_2_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_2_a_3"
+                    android:textAppearance="@style/TextAppearance.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_2_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_2_q_2_a_4"
+                    android:textAppearance="@style/TextAppearance.Small" />
+            </RadioGroup>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+                    android:layout_column="1"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:text="@string/check_2_q_3"
+                    android:textAppearance="@style/TextAppearance.Large" />
+            <TableRow
+                >
+
+                <EditText
+                    android:id="@+id/editText_blood_pressure_max"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:hint="@string/check_2_q_3_a_1"
+                    android:inputType="number"
+                    android:textAppearance="@style/TextAppearance.Large" />
+
+                <EditText
+                    android:id="@+id/editText_blood_pressure_min"
+                    android:layout_width="0dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:hint="@string/check_2_q_3_a_2"
+                    android:inputType="number"
+                    android:textAppearance="@style/TextAppearance.Large" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/button_next_check_1"
+            style="@style/TextAppearance.BlueButtonSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_txt_margin_section"
+            android:text="@string/next_title"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -16,5 +16,13 @@
     <fragment
         android:id="@+id/check1Fragment"
         android:name="com.ai.covid19.tracking.android.ui.check.Check1Fragment"
-        android:label="Check1Fragment" />
+        android:label="Check1Fragment" >
+        <action
+            android:id="@+id/action_check1Fragment_to_check2Fragment"
+            app:destination="@id/check2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/check2Fragment"
+        android:name="com.ai.covid19.tracking.android.ui.check.Check2Fragment"
+        android:label="Check2Fragment" />
 </navigation>
