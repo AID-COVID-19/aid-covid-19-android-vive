@@ -41,18 +41,21 @@
                     android:transitionGroup="true">
 
                     <RadioButton
+                        android:id="@+id/radio_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_1"
                         android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
+                        android:id="@+id/radio_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_2"
                         android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
+                        android:id="@+id/radio_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_3"
@@ -63,7 +66,6 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,6 +79,7 @@
 
                 <com.google.android.material.chip.ChipGroup
                     style="@style/TextAppearance.Medium"
+                    android:id="@+id/chip_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -84,6 +87,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_1"
@@ -92,6 +96,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_2"
@@ -100,6 +105,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_3"
@@ -108,6 +114,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_4"
@@ -116,6 +123,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_5"
@@ -124,6 +132,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_6"
@@ -132,6 +141,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_7"
@@ -140,6 +150,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_8"
@@ -148,6 +159,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_9"
@@ -156,6 +168,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_10"
@@ -164,6 +177,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_11"
@@ -172,6 +186,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_12"
@@ -180,6 +195,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_13"
@@ -188,6 +204,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_14"
@@ -196,6 +213,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_15"
@@ -204,6 +222,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_16"
@@ -212,6 +231,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/chip_answer_17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_17"
@@ -219,10 +239,22 @@
                         app:chipIcon="@drawable/ic_done_black_24dp" />
 
                 </com.google.android.material.chip.ChipGroup>
+            </TableRow >
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/editText_other_symptom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:maxLength="1000"
+                    android:hint="@string/check_1_q_3"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    tools:layout_editor_absoluteX="51dp"
+                    tools:layout_editor_absoluteY="747dp" />
             </TableRow>
-
         </TableLayout>
-
         <Button
             android:id="@+id/button_next_check_1"
             style="@style/TextAppearance.BlueButtonSmall"
@@ -236,5 +268,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
