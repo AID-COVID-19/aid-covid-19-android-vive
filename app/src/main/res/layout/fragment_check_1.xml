@@ -13,160 +13,228 @@
         android:layout_margin="@dimen/fragment_margin"
         android:background="@color/colorBackgroundLight"
         android:padding="@dimen/fragment_padding_extended">
+
         <TableLayout
+            android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
-            <TableRow android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_1_q_1"
-                    android:textAppearance="@style/TextAppearance.Medium">
-
-                </TextView>
+                    android:textAppearance="@style/TextAppearance.Large" />
             </TableRow>
-            <TableRow android:layout_width="match_parent"
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioGroup
-                    android:transitionGroup="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:transitionGroup="true">
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_1"
-                        android:textAppearance="@style/TextAppearance.Small">
-
-                    </RadioButton>
+                        android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_2"
-                        android:textAppearance="@style/TextAppearance.Small">
-
-                    </RadioButton>
+                        android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_3"
-                        android:textAppearance="@style/TextAppearance.Small">
-
-                    </RadioButton>
+                        android:textAppearance="@style/TextAppearance.Small" />
                 </RadioGroup>
             </TableRow>
-            <TableRow android:layout_width="match_parent"
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_1_q_2"
-                    android:textAppearance="@style/TextAppearance.Medium" />
+                    android:textAppearance="@style/TextAppearance.Large" />
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
+
                 <com.google.android.material.chip.ChipGroup
+                    style="@style/TextAppearance.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:chipSpacing="25dp"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="16dp"
+                    app:chipSpacing="5dp">
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_1" />
+                        android:text="@string/check_1_q_2_a_1"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_2" />
+                        android:text="@string/check_1_q_2_a_2"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_3" />
+                        android:text="@string/check_1_q_2_a_3"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_4" />
+                        android:text="@string/check_1_q_2_a_4"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_5" />
+                        android:text="@string/check_1_q_2_a_5"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_6" />
+                        android:text="@string/check_1_q_2_a_6"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_7" />
+                        android:text="@string/check_1_q_2_a_7"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_8" />
+                        android:text="@string/check_1_q_2_a_8"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_9" />
+                        android:text="@string/check_1_q_2_a_9"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_10" />
+                        android:text="@string/check_1_q_2_a_10"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_11" />
+                        android:text="@string/check_1_q_2_a_11"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_12" />
+                        android:text="@string/check_1_q_2_a_12"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_13" />
+                        android:text="@string/check_1_q_2_a_13"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_14" />
+                        android:text="@string/check_1_q_2_a_14"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_15" />
+                        android:text="@string/check_1_q_2_a_15"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_16" />
+                        android:text="@string/check_1_q_2_a_16"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                     <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_17" />
+                        android:text="@string/check_1_q_2_a_17"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
 
                 </com.google.android.material.chip.ChipGroup>
             </TableRow>
 
         </TableLayout>
+
+        <Button
+            android:id="@+id/button_next_check_1"
+            style="@style/TextAppearance.BlueButtonSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_txt_margin_section"
+            android:layout_marginBottom="@dimen/activity_txt_margin_section"
+            android:text="@string/next_title"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
