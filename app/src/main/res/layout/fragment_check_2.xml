@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_check_1"
+    android:id="@+id/fragment_check_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PatientCheckActivity">
@@ -138,7 +138,7 @@
         </TableLayout>
 
         <Button
-            android:id="@+id/button_next_check_1"
+            android:id="@+id/button_next_check_2"
             style="@style/TextAppearance.BlueButtonSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -148,8 +148,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

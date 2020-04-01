@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PatientCheckActivity"
+    android:id="@+id/view_gad_7_answers"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.chip.ChipGroup
+            style="@style/TextAppearance.Medium"
+            app:singleSelection="true"
+            android:id="@+id/chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:chipSpacing="2dp">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chip_answer_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_3_q_1_a_01"
+                app:checkedIconEnabled="true"
+                app:chipIcon="@drawable/ic_done_black_24dp" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chip_answer_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_3_q_1_a_02"
+                app:checkedIconEnabled="true"
+                app:chipIcon="@drawable/ic_done_black_24dp" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chip_answer_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_3_q_1_a_03"
+                app:checkedIconEnabled="true"
+                app:chipIcon="@drawable/ic_done_black_24dp" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chip_answer_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_3_q_1_a_04"
+                app:checkedIconEnabled="true"
+                app:chipIcon="@drawable/ic_done_black_24dp" />
+</com.google.android.material.chip.ChipGroup>
+    </TableRow >
+</TableLayout>

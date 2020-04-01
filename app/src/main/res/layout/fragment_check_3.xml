@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_check_3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PatientCheckActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/fragment_margin"
+        android:background="@color/colorBackgroundLight"
+        android:padding="@dimen/fragment_padding_extended">
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_high_title_1"
+                android:text="@string/check_3_q_1"
+                android:textAppearance="@style/TextAppearance.Large" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+                android:text="@string/check_3_q_1_a_1"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_1" layout="@layout/view_gad_7_answers"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+                android:text="@string/check_3_q_1_a_2"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_2" layout="@layout/view_gad_7_answers"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_2"
+                android:text="@string/check_3_q_1_a_3"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_3" layout="@layout/view_gad_7_answers"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_2"
+                android:text="@string/check_3_q_1_a_4"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_4" layout="@layout/view_gad_7_answers"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_2"
+                android:text="@string/check_3_q_1_a_5"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_5" layout="@layout/view_gad_7_answers"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_2"
+                android:text="@string/check_3_q_1_a_6"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_6" layout="@layout/view_gad_7_answers"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_2"
+                android:text="@string/check_3_q_1_a_7"
+                android:textAppearance="@style/TextAppearance.Medium" />
+
+            <include android:id="@+id/gad_answers_7" layout="@layout/view_gad_7_answers"/>
+
+        </TableLayout>
+        <Button
+            android:id="@+id/button_next_check_3"
+            style="@style/TextAppearance.BlueButtonSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_txt_margin_section"
+            android:layout_marginBottom="@dimen/activity_txt_margin_section"
+            android:text="@string/next_title"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
