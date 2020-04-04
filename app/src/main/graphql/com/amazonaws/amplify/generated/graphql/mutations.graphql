@@ -1,0 +1,91 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateDiagnosisTable($input: CreateDiagnosisTableInput!) {
+  createDiagnosisTable(input: $input) {
+    id
+    created_at
+    disease_under_observation
+    doctor_id
+    patient_id
+    status
+    treatment
+  }
+}
+mutation UpdateDiagnosisTable($input: UpdateDiagnosisTableInput!) {
+  updateDiagnosisTable(input: $input) {
+    id
+    created_at
+    disease_under_observation
+    doctor_id
+    patient_id
+    status
+    treatment
+  }
+}
+mutation DeleteDiagnosisTable($input: DeleteDiagnosisTableInput!) {
+  deleteDiagnosisTable(input: $input) {
+    id
+    created_at
+    disease_under_observation
+    doctor_id
+    patient_id
+    status
+    treatment
+  }
+}
+mutation CreatePatientProfile($input: CreatePatientProfileInput!) {
+  createPatientProfile(input: $input) {
+    id
+    name
+    lastname
+    date_of_birth
+    postal_code
+    country
+    state
+    city
+    address
+    google_full_address
+    address_geo_point
+    gender
+    height
+    mobile_phone
+    other_phone
+  }
+}
+mutation UpdatePatientProfile($input: UpdatePatientProfileInput!) {
+  updatePatientProfile(input: $input) {
+    id
+    name
+    lastname
+    date_of_birth
+    postal_code
+    country
+    state
+    city
+    address
+    google_full_address
+    address_geo_point
+    gender
+    height
+    mobile_phone
+    other_phone
+  }
+}
+mutation DeletePatientProfile($input: DeletePatientProfileInput!) {
+  deletePatientProfile(input: $input) {
+    id
+    name
+    lastname
+    date_of_birth
+    postal_code
+    country
+    state
+    city
+    address
+    google_full_address
+    address_geo_point
+    gender
+    height
+    mobile_phone
+    other_phone
+  }
+}

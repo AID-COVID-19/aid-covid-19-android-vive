@@ -1,0 +1,15 @@
+projects:
+  Health Self Check:
+    schemaPath: app/src/main/graphql/schema.json
+    includes:
+      - app/src/main/graphql/**/*.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: ''
+        generatedFileName: ''
+        docsFilePath: app/src/main/graphql/com/amazonaws/amplify/generated/graphql
+        region: us-east-2
+        apiId: pf7ppn6xljcq3gzqoe5we2apti
+        maxDepth: 2
