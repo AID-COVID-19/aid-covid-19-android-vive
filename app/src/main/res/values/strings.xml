@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Covid 19 -health tracking</string>
     <string name="title_home">Home</string>
+    <string name="title_sign_in">Sign In</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Profile</string>
     <string name="patient_name">Rosa Rodríguez García</string>
@@ -88,4 +89,7 @@
     <string name="check_4_q_2_a_3">En la última semana, ¿ha estado pensando en suicidarse?</string>
     <string name="check_4_q_2_a_4">¿Alguna vez ha intentado suicidarse?</string>
     <string name="check_4_q_2_a_5">¿Está pensando en suicidarse en este momento?</string>
+    <string name="auth_phone_title">Digite su número de celular</string>
+    <string name="auth_send_phone_code">Envíar Código</string>
+    <string name="auth_phone_hint">###-####</string>
 </resources>

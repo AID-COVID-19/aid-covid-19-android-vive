@@ -5,6 +5,7 @@
     <dimen name="activity_txt_margin_title_2">8dp</dimen>
     <dimen name="activity_txt_margin_paragraph">6dp</dimen>
     <dimen name="activity_txt_margin_section">8dp</dimen>
+    <dimen name="activity_txt_margin_first_line">30dp</dimen>
 
     <dimen name="activity_txt_high_title_1">20dp</dimen>
     <dimen name="activity_txt_high_title_2">16dp</dimen>

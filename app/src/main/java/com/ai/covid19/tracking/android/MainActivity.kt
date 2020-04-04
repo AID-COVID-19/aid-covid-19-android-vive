@@ -17,7 +17,6 @@ import com.apollographql.apollo.exception.ApolloException
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.annotation.Nonnull
 
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,6 +7,7 @@ apply plugin: 'com.amazonaws.appsync'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+    viewBinding.enabled = true
 
     defaultConfig {
         applicationId "com.ai.covid19.tracking.android"
@@ -52,6 +53,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.fragment:fragment-ktx:1.2.3'
     //amazon aws amplify
     implementation 'com.amazonaws:aws-android-sdk-appsync:2.9.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
@@ -62,4 +64,5 @@ dependencies {
     //For the drop-in UI also:
     implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.10'
     implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.10'
+    implementation 'com.hbb20:ccp:2.2.2'
 }
