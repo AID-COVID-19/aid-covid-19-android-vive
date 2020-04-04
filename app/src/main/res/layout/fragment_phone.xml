@@ -60,6 +60,17 @@
                     android:inputType="phone"
                     android:textAppearance="@style/TextAppearance.Medium" />
             </TableRow>
+
+            <EditText
+                android:id="@+id/editText_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/temporal_password_hint"
+                android:inputType="textVisiblePassword"
+                android:textAppearance="@style/TextAppearance.Medium" />
         </TableLayout>
 
         <Button
@@ -70,7 +81,6 @@
             android:layout_marginTop="@dimen/activity_txt_margin_title_1"
             android:layout_marginBottom="@dimen/activity_txt_margin_section"
             android:text="@string/next_title"
-            android:textAppearance="@style/TextAppearance.Medium"
-            tools:text="@string/auth_send_phone_code" />
+            android:textAppearance="@style/TextAppearance.Medium"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

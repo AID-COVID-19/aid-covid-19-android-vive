@@ -10,6 +10,15 @@
         android:id="@+id/navigation_login"
         android:name="com.ai.covid19.tracking.android.ui.auth.AuthPhoneFragment"
         android:label="@string/title_sign_in"
-        tools:layout="@layout/fragment_phone" />
+        tools:layout="@layout/fragment_phone" >
+        <action
+            android:id="@+id/action_navigation_login_to_authNewPassFragment"
+            app:destination="@id/authNewPassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authNewPassFragment"
+        android:name="com.ai.covid19.tracking.android.ui.auth.AuthNewPassFragment"
+        android:label="fragment_new_pass"
+        tools:layout="@layout/fragment_new_pass" />
 
 </navigation>

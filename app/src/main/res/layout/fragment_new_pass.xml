@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_new_pass"
+    android:layout_margin="@dimen/fragment_margin"
+    tools:context=".ui.auth.AuthNewPassFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/fragment_padding_extended"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05">
+
+        <TextView
+            android:id="@+id/text_new_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/activity_txt_margin_first_line"
+            android:text="@string/text_title_new_pass"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.Large" />
+
+        <TextView
+            android:id="@+id/text_new_pass_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/activity_txt_margin_paragraph"
+            android:text="@string/new_password_hint"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.Small" />
+
+
+        <EditText
+            android:id="@+id/editText_new_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textVisiblePassword"
+            android:textAppearance="@style/TextAppearance.Medium" />
+
+        <Button
+            android:id="@+id/button_auth_next_2"
+            style="@style/TextAppearance.BlueButtonSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+            android:layout_marginBottom="@dimen/activity_txt_margin_section"
+            android:text="@string/next_title"
+            android:textAppearance="@style/TextAppearance.Medium" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

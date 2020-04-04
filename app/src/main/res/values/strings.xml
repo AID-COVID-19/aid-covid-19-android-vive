@@ -25,7 +25,7 @@
     <string name="treatment_content_3">Periodo del tratamiento: 27 de marzo al 3 de abril, 7 días</string>
     <string name="hour_alarm_content">2:00 P.M.</string>
     <string name="alarm_patient_name">¡Hola Rosa!</string>
-    <string name="alarm_notice">Es momento de hacer tu chequeo virtual,  es importante que contestes con total honestidad. Y no te preocupes, la información recolectada es totalmente confidencial!</string>
+    <string name="alarm_notice">es momento de hacer su chequeo virtual,  es importante que conteste con honestidad, para prestarle la ayuda necesaria. La información recolectada es totalmente confidencial.</string>
     <string name="button_start">Empezar</string>
     <string name="privacy_notice_title">Aviso de Privacidad</string>
     <string name="yes">Si</string>
@@ -92,4 +92,7 @@
     <string name="auth_phone_title">Digite su número de celular</string>
     <string name="auth_send_phone_code">Envíar Código</string>
     <string name="auth_phone_hint">###-####</string>
+    <string name="temporal_password_hint">Digite su contraseña temporal</string>
+    <string name="text_title_new_pass">Digite su nueva contraseña</string>
+    <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>
 </resources>
