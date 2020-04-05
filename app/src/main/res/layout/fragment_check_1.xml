@@ -36,26 +36,27 @@
                 android:layout_height="wrap_content">
 
                 <RadioGroup
+                    android:id="@+id/howYouFeel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:transitionGroup="true">
 
                     <RadioButton
-                        android:id="@+id/radio_1"
+                        android:id="@+id/howYouFeel_better"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_1"
                         android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
-                        android:id="@+id/radio_2"
+                        android:id="@+id/howYouFeel_no_better"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_2"
                         android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
-                        android:id="@+id/radio_3"
+                        android:id="@+id/howYouFeel_worse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_3"
