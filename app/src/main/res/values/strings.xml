@@ -58,12 +58,12 @@
     <string name="check_1_q_3">Si tiene otros síntomas o molestias, descríbalos.</string>
     <string name="check_2_q_1">¿Cuál es su temperatura corporal en grados celsius (ºC)?</string>
     <string name="check_2_q_1_a_1">menor a 37.5º</string>
-    <string name="check_2_q_1_a_2">entre 37.5º y 38º</string>
+    <string name="check_2_q_1_a_2">entre 37.5º y 37.9º</string>
     <string name="check_2_q_1_a_3">entre 38º y 39º</string>
     <string name="check_2_q_1_a_4">mayor a 39º</string>
     <string name="check_2_q_2">¿Cuántas respiraciones por minuto, tiene en este momento</string>
     <string name="check_2_q_2_a_1">menor a 12</string>
-    <string name="check_2_q_2_a_2">entre 12 y 20</string>
+    <string name="check_2_q_2_a_2">entre 12 y 19</string>
     <string name="check_2_q_2_a_3">entre 20 y 28</string>
     <string name="check_2_q_2_a_4">mayor a 28</string>
     <string name="check_2_q_3">¿En cuanto está su presión arterial en éste momento?</string>

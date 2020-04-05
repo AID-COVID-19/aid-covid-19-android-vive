@@ -60,9 +60,10 @@ class Check1Fragment : Fragment(), View.OnClickListener {
     }
 
     private fun saveCheck1() {
+        viewModelCheck.timeStampLongId = DateTime.now().unixMillisLong
         val createCheckInput = CreateCheckInput.builder()
             .identityId(AWSMobileClient.getInstance().identityId)
-            .checkTimestamp(DateTime.now().unixMillisLong)
+            .checkTimestamp(viewModelCheck.timeStampLongId)
             .howYouFeel(viewModelCheck.howYouFeel)
             .generalDiscomfort(viewModelCheck.generalDiscomfort)
             .itchyOrSoreThroat(viewModelCheck.itchyOrSoreThroat)

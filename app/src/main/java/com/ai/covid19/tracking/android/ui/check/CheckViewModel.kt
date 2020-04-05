@@ -4,12 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient
+import kotlin.properties.Delegates
 
 class CheckViewModel : ViewModel() {
 
     internal var mAWSAppSyncClient: AWSAppSyncClient? = null
+    var timeStampLongId by Delegates.notNull<Long>()
 
     var howYouFeelSelectedId: Int = -1
+    var temperatureRangeSelectedId: Int = -1
+    var breathRangeSelectedId: Int = -1
 
     var howYouFeel: String? = null
     var generalDiscomfort: Boolean = false

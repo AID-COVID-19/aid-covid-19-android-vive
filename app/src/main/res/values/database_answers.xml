@@ -3,4 +3,14 @@
     <string name="howYouFeel_better">"better"</string>
     <string name="howYouFeel_no_better">"the same, I haven't gotten any better"</string>
     <string name="howYouFeel_worse">"worse"</string>
+
+    <string name="temperature_range_1">"less than 37.5ºC"</string>
+    <string name="temperature_range_2">"between 37.5ºC and 38ºC"</string>
+    <string name="temperature_range_3">"between 38º and 39º"</string>
+    <string name="temperature_range_4">"greater than 39º"</string>
+
+    <string name="breath_range_1">"less than 12"</string>
+    <string name="breath_range_2">"between 12 and 19"</string>
+    <string name="breath_range_3">"between 20 and 28"</string>
+    <string name="breath_range_4">"greater than 28</string>
 </resources>
