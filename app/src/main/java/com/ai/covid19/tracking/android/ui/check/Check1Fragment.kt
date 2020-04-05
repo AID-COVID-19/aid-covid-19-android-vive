@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_check_1.button_next_check_1
 
 class Check1Fragment : Fragment(), View.OnClickListener {
 
-    private val viewModelCheck1: CheckViewModel by viewModels()
+    private val viewModelCheck: CheckViewModel by viewModels()
     private lateinit var binding: FragmentCheck1Binding
 
     override fun onCreateView(
