@@ -73,3 +73,86 @@ query ListPatientProfiles(
     nextToken
   }
 }
+query GetCheck($identityId: String!, $checkTimestamp: AWSTimestamp!) {
+  getCheck(identityId: $identityId, checkTimestamp: $checkTimestamp) {
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    dizziness
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+  }
+}
+query ListChecks(
+  $filter: TableCheckFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listChecks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      checkTimestamp
+      identityId
+      howYouFeel
+      generalDiscomfort
+      itchyOrSoreThroat
+      diarrhea
+      badTasteInTheMouth
+      lossOfTasteInFood
+      lossOfSmell
+      musclePains
+      chestOrBackPain
+      headache
+      wetCoughWithPhlegm
+      dryCough
+      chill
+      fever
+      fatigueWhenWalkingOrClimbingStairs
+      feelingShortOfBreathWithDailyActivities
+      feelingOfStrainingToBreathe
+      respiratoryDistress
+      dizziness
+      otherSymptomsOrDiscomfort
+      temperatureRange
+      breathsPerMinuteRange
+      bloodPressureLowValue
+      bloodPressureHighValue
+      haveYouBeenNervousOrAnxious
+      CouldntStopBeingWorried
+      HaveYouWorriedTooMuchAboutDifferentThings
+      HaveYouHadDifficultyRelaxing
+      HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+      HaveYouBecomeEasilyAnnoyedOrIrritable
+      HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+      AreYouTakingYourMedications
+    }
+    nextToken
+  }
+}
