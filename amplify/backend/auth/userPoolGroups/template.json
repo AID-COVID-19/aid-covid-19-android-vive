@@ -1,0 +1,68 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "authcovid19healthtrackindcba8612UserPoolId": {
+            "Type": "String",
+            "Default": "authcovid19healthtrackindcba8612UserPoolId"
+        },
+        
+        "authcovid19healthtrackindcba8612AppClientID": {
+            "Type": "String",
+            "Default": "authcovid19healthtrackindcba8612AppClientID"
+        },
+        "authcovid19healthtrackindcba8612AppClientIDWeb": {
+            "Type": "String",
+            "Default": "authcovid19healthtrackindcba8612AppClientIDWeb"
+        },
+        "AuthRoleArn": {
+            "Type": "String"
+        },
+        "UnauthRoleArn": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+    
+        "patientsGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "patients",
+              "Precedence" : 1,
+              
+              "UserPoolId" : {
+                "Ref": "authcovid19healthtrackindcba8612UserPoolId"
+              } 
+            }
+        },
+        
+    
+        "doctorsGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "doctors",
+              "Precedence" : 2,
+              
+              "UserPoolId" : {
+                "Ref": "authcovid19healthtrackindcba8612UserPoolId"
+              } 
+            }
+        },
+        
+    
+    
+    },
+    
+}

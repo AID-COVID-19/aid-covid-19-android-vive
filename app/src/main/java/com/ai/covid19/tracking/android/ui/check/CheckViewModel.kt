@@ -3,29 +3,33 @@ package com.ai.covid19.tracking.android.ui.check
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.amazonaws.mobile.client.AWSMobileClient
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient
 
 class CheckViewModel : ViewModel() {
 
+    internal var mAWSAppSyncClient: AWSAppSyncClient? = null
+
+    var howYouFeelSelectedId: Int = -1
+
     var howYouFeel: String? = null
-    var generalDiscomfort: Boolean? = null
-    var itchyOrSoreThroat: Boolean? = null
-    var diarrhea: Boolean? = null
-    var badTasteInTheMouth: Boolean? = null
-    var lossOfTasteInFood: Boolean? = null
-    var lossOfSmell: Boolean? = null
-    var musclePains: Boolean? = null
-    var chestOrBackPain: Boolean? = null
-    var headache: Boolean? = null
-    var wetCoughWithPhlegm: Boolean? = null
-    var dryCough: Boolean? = null
-    var chill: Boolean? = null
-    var fever: Boolean? = null
-    var fatigueWhenWalkingOrClimbingStairs: Boolean? = null
-    var feelingShortOfBreathWithDailyActivities: Boolean? = null
-    var feelingOfStrainingToBreathe: Boolean? = null
-    var respiratoryDistress: Boolean? = null
-    var dizziness: Boolean? = null
+    var generalDiscomfort: Boolean = false
+    var itchyOrSoreThroat: Boolean = false
+    var diarrhea: Boolean = false
+    var badTasteInTheMouth: Boolean = false
+    var lossOfTasteInFood: Boolean = false
+    var lossOfSmell: Boolean = false
+    var musclePains: Boolean = false
+    var chestOrBackPain: Boolean = false
+    var headache: Boolean = false
+    var wetCoughWithPhlegm: Boolean = false
+    var dryCough: Boolean = false
+    var chill: Boolean = false
+    var fever: Boolean = false
+    var fatigueWhenWalkingOrClimbingStairs: Boolean = false
+    var feelingShortOfBreathWithDailyActivities: Boolean = false
+    var feelingOfStrainingToBreathe: Boolean = false
+    var respiratoryDistress: Boolean = false
+    var dizziness: Boolean = false
     var otherSymptomsOrDiscomfort: String? = null
     var temperatureRange: String? = null
     var breathsPerMinuteRange: String? = null
@@ -41,11 +45,12 @@ class CheckViewModel : ViewModel() {
     var areYouTakingYourMedications: String? = null
 
     init {
-        AWSMobileClient.getInstance().userAttributes[""]
+        // AWSMobileClient.getInstance().userAttributes[""]
     }
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is Check Fragment"
     }
     val text: LiveData<String> = _text
+
 }

@@ -1,10 +1,8 @@
 {
-    "identityPoolName": "covid19healthtrackindcba8612_identitypool_dcba8612",
-    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "covid1dcba8612",
     "userPoolName": "covid19healthtrackindcba8612_userpool_dcba8612",
     "autoVerifiedAttributes": [
-        "email"
+        "phone_number"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
@@ -31,7 +29,7 @@
     "userpoolClientLambdaRole": "covid1dcba8612_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "resourceName": "covid19healthtrackindcba8612",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -44,15 +42,22 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "usernameAttributes": [
         "phone_number"
     ],
     "triggers": "{}",
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+        "patients",
+        "doctors"
+    ],
     "parentStack": {
         "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "dependsOn": []
+    "dependsOn": [],
+    "userPoolGroups": true,
+    "adminQueries": true,
+    "hostedUI": false,
+    "adminQueryGroup": "doctors"
 }

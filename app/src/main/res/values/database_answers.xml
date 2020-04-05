@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="howYouFeel_better">"better"</string>
+    <string name="howYouFeel_no_better">"the same, I haven't gotten any better"</string>
+    <string name="howYouFeel_worse">"worse"</string>
+</resources>

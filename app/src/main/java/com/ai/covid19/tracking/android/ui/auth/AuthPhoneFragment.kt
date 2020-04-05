@@ -47,5 +47,4 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
         viewModel.phoneTemporalPassword = binding.editTextPassword.text.toString()
         viewModel.signIn("+" + viewModel.countryCode + viewModel.phoneNumber, viewModel.phoneTemporalPassword!!)
     }
-
 }
