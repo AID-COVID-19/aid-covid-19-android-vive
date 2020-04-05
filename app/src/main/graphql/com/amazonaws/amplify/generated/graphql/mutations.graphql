@@ -89,3 +89,117 @@ mutation DeletePatientProfile($input: DeletePatientProfileInput!) {
     other_phone
   }
 }
+mutation CreateCheck($input: CreateCheckInput!) {
+  createCheck(input: $input) {
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    dizziness
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+  }
+}
+mutation UpdateCheck($input: UpdateCheckInput!) {
+  updateCheck(input: $input) {
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    dizziness
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+  }
+}
+mutation DeleteCheck($input: DeleteCheckInput!) {
+  deleteCheck(input: $input) {
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    dizziness
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+  }
+}
