@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.amazonaws.mobile.auth.core.IdentityManager
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.Callback
@@ -24,10 +25,8 @@ class AuthViewModel : ViewModel() {
 
     var isNewPassDone = MutableLiveData<Boolean>()
 
-    fun newPassDone(value: Boolean) {
-        runOnUiThread(Runnable {
-            isNewPassDone.value = value
-        })
+    fun newPassDone(value: Boolean) = runOnUiThread {
+        isNewPassDone.value = value
     }
 
     private val _text = MutableLiveData<String>().apply {
