@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"covid19healthtrackindcba8612": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
