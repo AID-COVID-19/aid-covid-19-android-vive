@@ -1,11 +1,11 @@
 # Vive
-#### Notice: This app is under development 
+#### Notice: This app is under development.
 
 ## Overview 
 
 Application As a Service, which allows patients to self-check at home under supervision by authorized doctors through administrators.
 
-It is a project developed by the organization Ai Covid 19. Organization that began to form on March 20, in response to the pandamia that began to gain strength in America at that time. You can see more about us at www.ai-covid-19.com
+It is a project developed by the organization Ai Covid 19. An organization that started on March 20, 2020, in response to the SARS-CoV-2 pandemia that worsen in America during that time. You can see more about us at www.ai-covid-19.com
 
 ## Technical description
 
