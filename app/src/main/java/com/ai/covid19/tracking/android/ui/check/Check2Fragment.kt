@@ -9,16 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheck2Binding
-import com.amazonaws.amplify.generated.graphql.CreateCheckMutation
 import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
-import kotlinx.android.synthetic.main.fragment_check_2.*
 import type.UpdateCheckInput
 import javax.annotation.Nonnull
 
@@ -36,17 +33,15 @@ class Check2Fragment : Fragment() {
         temperatureRangeSetup()
         breathRangeSetup()
         bloodPleasureSetup()
-        saveCheck2()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val nav = findNavController()
         val listener: (View) -> Unit = {
-            nav.navigate(R.id.action_check2Fragment_to_check3Fragment)
+            saveCheck2()
         }
-        button_next_check_2.setOnClickListener(listener)
+        binding.buttonNextCheck2.setOnClickListener(listener)
     }
 
     private fun temperatureRangeSetup() {
@@ -85,7 +80,8 @@ class Check2Fragment : Fragment() {
             }
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-                viewModelCheck.bloodPressureHighValue = s.toString().toInt()
+                if (!s.isBlank())
+                    viewModelCheck.bloodPressureHighValue = s.toString().toInt()
             }
         })
 
@@ -96,7 +92,8 @@ class Check2Fragment : Fragment() {
             }
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-                viewModelCheck.bloodPressureLowValue = s.toString().toInt()
+                if (!s.isBlank())
+                    viewModelCheck.bloodPressureLowValue = s.toString().toInt()
             }
         })
     }
@@ -120,10 +117,9 @@ class Check2Fragment : Fragment() {
                 Log.e("Error", e.toString())
             }
             override fun onResponse(response: com.apollographql.apollo.api.Response<UpdateCheckMutation.Data?>) {
-                findNavController().navigate(R.id.action_check1Fragment_to_check2Fragment)
-                Log.i(this.javaClass.canonicalName , "Check 1 was added to database.");
+                findNavController().navigate(R.id.action_check2Fragment_to_check3Fragment)
+                Log.i(this.javaClass.canonicalName , "Check 2 was added to database.");
             }
         }
-
 
 }

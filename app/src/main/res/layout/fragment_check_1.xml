@@ -80,7 +80,7 @@
 
                 <com.google.android.material.chip.ChipGroup
                     style="@style/TextAppearance.Medium"
-                    android:id="@+id/chip_group"
+                    android:id="@+id/bother"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

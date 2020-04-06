@@ -23,10 +23,21 @@ class AuthViewModel : ViewModel() {
         isTempSignIn.value = value
     }
 
+    val isSignIn = MutableLiveData<Boolean>()
+
+    fun sigIn(value: Boolean) {
+        isSignIn.value = value
+    }
+
     var isNewPassDone = MutableLiveData<Boolean>()
 
     fun newPassDone(value: Boolean) = runOnUiThread {
         isNewPassDone.value = value
+    }
+
+    init {
+        isTempSignIn.value = false
+        isSignIn.value = false
     }
 
     private val _text = MutableLiveData<String>().apply {
@@ -47,7 +58,7 @@ class AuthViewModel : ViewModel() {
                             "Sign-in callback state: " + signInResult.signInState
                         )
                         when (signInResult.signInState) {
-                            SignInState.DONE ->  Log.d(this.javaClass.canonicalName, "Sign In Done.")
+                            SignInState.DONE -> sigIn(true)
                             SignInState.NEW_PASSWORD_REQUIRED -> tempSigIn(true)
                             else -> Log.d(this.javaClass.canonicalName, "Unsupported sign-in confirmation: " + signInResult.signInState)
                         }

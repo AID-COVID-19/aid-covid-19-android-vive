@@ -15,11 +15,12 @@ import com.amazonaws.mobile.client.AWSMobileClient
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
 import com.soywiz.klock.DateTime
-import kotlinx.android.synthetic.main.fragment_check_1.button_next_check_1
+import kotlinx.android.synthetic.main.fragment_check_1.*
 import type.CreateCheckInput
 import javax.annotation.Nonnull
 
-class Check1Fragment : Fragment(), View.OnClickListener {
+
+class Check1Fragment : Fragment() {
 
     private val viewModelCheck: CheckViewModel by activityViewModels()
     private lateinit var binding: FragmentCheck1Binding
@@ -31,7 +32,8 @@ class Check1Fragment : Fragment(), View.OnClickListener {
     ): View? {
         binding = FragmentCheck1Binding.inflate(inflater, container, false)
         howYouFeelSetup()
-
+        botherSetup()
+        botherFillContent()
         return binding.root
     }
 
@@ -41,10 +43,6 @@ class Check1Fragment : Fragment(), View.OnClickListener {
             saveCheck1()
         }
         button_next_check_1.setOnClickListener(listener)
-    }
-
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
     }
 
     private fun howYouFeelSetup() {
@@ -61,7 +59,106 @@ class Check1Fragment : Fragment(), View.OnClickListener {
     }
 
     private fun botherSetup() {
+        binding.generalDiscomfort.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.itchyOrSoreThroat.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.diarrhea.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.badTasteInTheMouth.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.lossOfTasteInFood.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.lossOfSmell.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.musclePains.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.chestOrBackPain.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.headache.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.wetCoughWithPhlegm.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.dryCough.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.chill.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.fever.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.fatigueWhenWalkingOrClimbingStairs.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.feelingShortOfBreathWithDailyActivities.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.feelingOfStrainingToBreathe.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.respiratoryDistress.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.dizziness.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+    }
 
+    private fun botherOptions(checkedId: Int, isChecked: Boolean) {
+        when (checkedId) {
+            R.id.generalDiscomfort -> viewModelCheck.generalDiscomfort = isChecked
+            R.id.itchyOrSoreThroat -> viewModelCheck.itchyOrSoreThroat = isChecked
+            R.id.diarrhea -> viewModelCheck.diarrhea = isChecked
+            R.id.badTasteInTheMouth -> viewModelCheck.badTasteInTheMouth = isChecked
+            R.id.lossOfTasteInFood ->viewModelCheck.lossOfTasteInFood = isChecked
+            R.id.lossOfSmell -> viewModelCheck.lossOfSmell = isChecked
+            R.id.musclePains -> viewModelCheck.musclePains = isChecked
+            R.id.chestOrBackPain -> viewModelCheck.chestOrBackPain = isChecked
+            R.id.headache -> viewModelCheck.headache = isChecked
+            R.id.wetCoughWithPhlegm -> viewModelCheck.wetCoughWithPhlegm = isChecked
+            R.id.dryCough -> viewModelCheck.dryCough = isChecked
+            R.id.chill -> viewModelCheck.chill = isChecked
+            R.id.fever -> viewModelCheck.fever = isChecked
+            R.id.fatigueWhenWalkingOrClimbingStairs -> viewModelCheck.fatigueWhenWalkingOrClimbingStairs = isChecked
+            R.id.feelingShortOfBreathWithDailyActivities -> viewModelCheck.feelingShortOfBreathWithDailyActivities = isChecked
+            R.id.feelingOfStrainingToBreathe -> viewModelCheck.feelingOfStrainingToBreathe = isChecked
+            R.id.respiratoryDistress -> viewModelCheck.respiratoryDistress = isChecked
+            R.id.dizziness -> viewModelCheck.dizziness = isChecked
+        }
+    }
+
+    private fun botherFillContent() {
+        binding.generalDiscomfort.isChecked = viewModelCheck.generalDiscomfort
+        binding.itchyOrSoreThroat.isChecked = viewModelCheck.itchyOrSoreThroat
+        binding.diarrhea.isChecked = viewModelCheck.diarrhea
+        binding.badTasteInTheMouth.isChecked = viewModelCheck.badTasteInTheMouth
+        binding.lossOfTasteInFood.isChecked = viewModelCheck.lossOfTasteInFood
+        binding.lossOfSmell.isChecked = viewModelCheck.lossOfSmell
+        binding.musclePains.isChecked = viewModelCheck.musclePains
+        binding.chestOrBackPain.isChecked = viewModelCheck.chestOrBackPain
+        binding.headache.isChecked = viewModelCheck.headache
+        binding.wetCoughWithPhlegm.isChecked = viewModelCheck.wetCoughWithPhlegm
+        binding.dryCough.isChecked = viewModelCheck.dryCough
+        binding.chill.isChecked = viewModelCheck.chill
+        binding.fever.isChecked = viewModelCheck.fever
+        binding.fatigueWhenWalkingOrClimbingStairs.isChecked = viewModelCheck.fatigueWhenWalkingOrClimbingStairs
+        binding.feelingShortOfBreathWithDailyActivities.isChecked = viewModelCheck.feelingShortOfBreathWithDailyActivities
+        binding.feelingOfStrainingToBreathe.isChecked = viewModelCheck.feelingOfStrainingToBreathe
+        binding.respiratoryDistress.isChecked = viewModelCheck.respiratoryDistress
+        binding.dizziness.isChecked = viewModelCheck.dizziness
+        if(!viewModelCheck.otherSymptomsOrDiscomfort.isNullOrBlank())
+            binding.otherSymptomsOrDiscomfort.setText(viewModelCheck.otherSymptomsOrDiscomfort)
     }
 
     private fun saveCheck1() {
