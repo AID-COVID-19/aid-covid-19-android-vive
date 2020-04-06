@@ -8,6 +8,8 @@ It is a project developed by the organization Ai Covid 19. Organization that beg
 
 ## Technical description
 
+### Notice: This app is under development 
+
 Open source application written in kotlin on Amazon AWS. 
 
 This version include keys for API access for a development enviroment for easy test, but you cannot used them for production. 
