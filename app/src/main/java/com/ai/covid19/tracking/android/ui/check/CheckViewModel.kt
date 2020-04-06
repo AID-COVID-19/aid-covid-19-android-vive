@@ -16,6 +16,7 @@ class CheckViewModel : ViewModel() {
     var breathRangeSelectedId: Int = -1
 
     var howYouFeel: String? = null
+
     var generalDiscomfort: Boolean = false
     var itchyOrSoreThroat: Boolean = false
     var diarrhea: Boolean = false
@@ -35,6 +36,7 @@ class CheckViewModel : ViewModel() {
     var respiratoryDistress: Boolean = false
     var dizziness: Boolean = false
     var otherSymptomsOrDiscomfort: String? = null
+
     var temperatureRange: String? = null
     var breathsPerMinuteRange: String? = null
     var bloodPressureLowValue: Int? = null

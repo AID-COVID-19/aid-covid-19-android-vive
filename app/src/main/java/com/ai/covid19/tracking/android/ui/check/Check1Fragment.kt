@@ -50,6 +50,7 @@ class Check1Fragment : Fragment(), View.OnClickListener {
     private fun howYouFeelSetup() {
         binding.howYouFeel.check(viewModelCheck.howYouFeelSelectedId)
         binding.howYouFeel.setOnCheckedChangeListener { _, checkedId ->
+            viewModelCheck.howYouFeelSelectedId = checkedId
             viewModelCheck.howYouFeel = when (checkedId) {
                 R.id.howYouFeel_better -> getString(R.string.howYouFeel_better)
                 R.id.howYouFeel_no_better -> getString(R.string.howYouFeel_no_better)
@@ -57,6 +58,10 @@ class Check1Fragment : Fragment(), View.OnClickListener {
                 else -> null
             }
         }
+    }
+
+    private fun botherSetup() {
+
     }
 
     private fun saveCheck1() {

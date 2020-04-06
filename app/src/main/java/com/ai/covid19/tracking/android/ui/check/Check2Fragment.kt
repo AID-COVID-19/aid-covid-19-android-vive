@@ -52,6 +52,7 @@ class Check2Fragment : Fragment() {
     private fun temperatureRangeSetup() {
         binding.temperature.check(viewModelCheck.temperatureRangeSelectedId)
         binding.temperature.setOnCheckedChangeListener { _, checkedId ->
+            viewModelCheck.temperatureRangeSelectedId = checkedId
             viewModelCheck.temperatureRange = when (checkedId) {
                 R.id.temperature_range_1 -> getString(R.string.temperature_range_1)
                 R.id.temperature_range_2 -> getString(R.string.temperature_range_2)
@@ -63,8 +64,9 @@ class Check2Fragment : Fragment() {
     }
 
     private fun breathRangeSetup() {
-        binding.breath.check(viewModelCheck.temperatureRangeSelectedId)
+        binding.breath.check(viewModelCheck.breathRangeSelectedId)
         binding.breath.setOnCheckedChangeListener { _, checkedId ->
+            viewModelCheck.breathRangeSelectedId = checkedId
             viewModelCheck.breathsPerMinuteRange = when (checkedId) {
                 R.id.breath_range_1 -> getString(R.string.breath_range_1)
                 R.id.breath_range_2 -> getString(R.string.breath_range_2)
