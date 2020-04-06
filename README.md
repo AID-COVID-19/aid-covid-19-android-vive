@@ -3,7 +3,7 @@
 
 ## Overview 
 
-As a service application, which allows patients to self-check at home under supervision by authorized doctors through administrators.
+Application As a Service, which allows patients to self-check at home under supervision by authorized doctors through administrators.
 
 It is a project developed by the organization Ai Covid 19. Organization that began to form on March 20, in response to the pandamia that began to gain strength in America at that time. You can see more about us at www.ai-covid-19.com
 
