@@ -1,4 +1,5 @@
 # Vive
+#### Notice: This app is under development 
 
 ## Overview 
 
@@ -7,8 +8,6 @@ As a service application, which allows patients to self-check at home under supe
 It is a project developed by the organization Ai Covid 19. Organization that began to form on March 20, in response to the pandamia that began to gain strength in America at that time. You can see more about us at www.ai-covid-19.com
 
 ## Technical description
-
-### Notice: This app is under development 
 
 Open source application written in kotlin on Amazon AWS. 
 
