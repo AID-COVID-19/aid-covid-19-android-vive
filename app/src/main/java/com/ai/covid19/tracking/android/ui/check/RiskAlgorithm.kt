@@ -27,8 +27,10 @@ class RiskAlgorithm(
 
     /**
      *  Given the variables in the constructor, the patient's risk is calculated in this method.
-     *  breath_range_4 = greater than 39ºC
-     *  breath_range_4 = between 38ºC and 39ºC
+     *  temperature_range_4 = greater than 39ºC
+     *  temperature_range_3 = between 38ºC and 39ºC
+     *  breath_range_4 = between 20 and 28
+     *  breath_range_3 = greater than 28
      *  **/
     fun calculateRisk() : RiskClassification  {
         if (breath_range == context.getString(R.string.breath_range_4)
