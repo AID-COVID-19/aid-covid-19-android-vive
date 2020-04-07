@@ -104,9 +104,6 @@ class Check1Fragment : Fragment() {
         binding.feelingShortOfBreathWithDailyActivities.setOnCheckedChangeListener { view, isChecked ->
             botherOptions( view.id, isChecked )
         }
-        binding.feelingOfStrainingToBreathe.setOnCheckedChangeListener { view, isChecked ->
-            botherOptions( view.id, isChecked )
-        }
         binding.respiratoryDistress.setOnCheckedChangeListener { view, isChecked ->
             botherOptions( view.id, isChecked )
         }
@@ -132,7 +129,6 @@ class Check1Fragment : Fragment() {
             R.id.fever -> viewModelCheck.fever = isChecked
             R.id.fatigueWhenWalkingOrClimbingStairs -> viewModelCheck.fatigueWhenWalkingOrClimbingStairs = isChecked
             R.id.feelingShortOfBreathWithDailyActivities -> viewModelCheck.feelingShortOfBreathWithDailyActivities = isChecked
-            R.id.feelingOfStrainingToBreathe -> viewModelCheck.feelingOfStrainingToBreathe = isChecked
             R.id.respiratoryDistress -> viewModelCheck.respiratoryDistress = isChecked
             R.id.dizziness -> viewModelCheck.dizziness = isChecked
         }
@@ -154,7 +150,6 @@ class Check1Fragment : Fragment() {
         binding.fever.isChecked = viewModelCheck.fever
         binding.fatigueWhenWalkingOrClimbingStairs.isChecked = viewModelCheck.fatigueWhenWalkingOrClimbingStairs
         binding.feelingShortOfBreathWithDailyActivities.isChecked = viewModelCheck.feelingShortOfBreathWithDailyActivities
-        binding.feelingOfStrainingToBreathe.isChecked = viewModelCheck.feelingOfStrainingToBreathe
         binding.respiratoryDistress.isChecked = viewModelCheck.respiratoryDistress
         binding.dizziness.isChecked = viewModelCheck.dizziness
         if(!viewModelCheck.otherSymptomsOrDiscomfort.isNullOrBlank())
@@ -182,7 +177,6 @@ class Check1Fragment : Fragment() {
             .fever(viewModelCheck.fever)
             .fatigueWhenWalkingOrClimbingStairs(viewModelCheck.fatigueWhenWalkingOrClimbingStairs)
             .feelingShortOfBreathWithDailyActivities(viewModelCheck.feelingShortOfBreathWithDailyActivities)
-            .feelingOfStrainingToBreathe(viewModelCheck.feelingOfStrainingToBreathe)
             .respiratoryDistress(viewModelCheck.respiratoryDistress)
             .dizziness(viewModelCheck.dizziness)
             .otherSymptomsOrDiscomfort(viewModelCheck.otherSymptomsOrDiscomfort).build()

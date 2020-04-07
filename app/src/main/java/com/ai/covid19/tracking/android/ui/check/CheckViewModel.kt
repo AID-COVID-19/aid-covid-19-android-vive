@@ -32,7 +32,6 @@ class CheckViewModel : ViewModel() {
     var fever: Boolean = false
     var fatigueWhenWalkingOrClimbingStairs: Boolean = false
     var feelingShortOfBreathWithDailyActivities: Boolean = false
-    var feelingOfStrainingToBreathe: Boolean = false
     var respiratoryDistress: Boolean = false
     var dizziness: Boolean = false
     var otherSymptomsOrDiscomfort: String? = null

@@ -223,15 +223,6 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/feelingOfStrainingToBreathe"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_16"
-                        app:checkedIconEnabled="true"
-                        app:chipIcon="@drawable/ic_done_black_24dp" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:id="@+id/respiratoryDistress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
