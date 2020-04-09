@@ -39,6 +39,29 @@
         <item name="height">@dimen/activity_txt_high_paragraph</item>
     </style>
 
+    <style name="TextAppearance.DarkBackground.SuperLarge" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/avenir_black</item>
+        <item name="android:textColor">@color/colorFontForDarkBackground</item>
+        <item name="height">@dimen/activity_txt_high_title_1</item>
+    </style>
+
+    <style name="TextAppearance.DarkBackground.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/avenir_medium</item>
+        <item name="android:textColor">@color/colorFontForDarkBackground</item>
+        <item name="height">@dimen/activity_txt_high_title_2</item>
+    </style>
+
+    <style name="TextAppearance.DarkBackground.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/avenir_book</item>
+        <item name="android:textColor">@color/colorFontForDarkBackground</item>
+        <item name="height">@dimen/activity_txt_high_paragraph</item>
+    </style>
+
     <style name="TextAppearance.BlueSmall" parent="TextAppearance.AppCompat.Small">
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">@font/avenir_book</item>
@@ -50,6 +73,20 @@
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">@font/avenir_book</item>
         <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorBackgroundLight</item>
+        <item name="android:elevation">@dimen/button_elevation</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:maxHeight">@dimen/button_height</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.BlueSmall</item>
+        <item name="android:textColor">@color/colorBottomFont</item>
+        <item name="height">@dimen/activity_txt_high_paragraph</item>
+    </style>
+
+    <style name="TextAppearance.BlackButtonSmall" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/avenir_book</item>
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
         <item name="rippleColor">@color/colorBackgroundLight</item>
         <item name="android:elevation">@dimen/button_elevation</item>
         <item name="android:layout_height">@dimen/button_height</item>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="score_howYouFeel_better">-1</>
-    <string name="score_howYouFeel_no_better">0</>
-    <string name="score_howYouFeel_worse">1</>
+    <string name="score_howYouFeel_better">-1</string>
+    <string name="score_howYouFeel_no_better">0</string>
+    <string name="score_howYouFeel_worse">1</string>
 
-    <string name="score_generalDiscomfort">0.1</>
+    <string name="score_generalDiscomfort">0.1</string>
     <string name="score_itchyOrSoreThroat">0.1</string>
     <string name="score_diarrhea">0.1</string>
     <string name="score_badTasteInTheMouth">0.1</string>
@@ -39,7 +39,7 @@
     <string name="score_stage_2_hypertension">2</string>
     <string name="score_hypertensive_crisis">3</string>
 
-    <string name="score_areYouTakingYourMedications_yes">-1</>
-    <string name="score_areYouTakingYourMedications_no">1</>
-    <string name="score_areYouTakingYourMedications_I_finished">0</>
+    <string name="score_areYouTakingYourMedications_yes">-1</string>
+    <string name="score_areYouTakingYourMedications_no">1</string>
+    <string name="score_areYouTakingYourMedications_I_finished">0</string>
 </resources>

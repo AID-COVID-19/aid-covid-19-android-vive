@@ -27,6 +27,7 @@
     <string name="alarm_patient_name">¡Hola Rosa!</string>
     <string name="alarm_notice">es momento de hacer su chequeo virtual,  es importante que conteste con honestidad, para prestarle la ayuda necesaria. La información recolectada es totalmente confidencial.</string>
     <string name="button_start">Empezar</string>
+    <string name="button_end">Finalizar</string>
     <string name="privacy_notice_title">Aviso de Privacidad</string>
     <string name="yes">Si</string>
     <string name="not">No</string>
@@ -96,4 +97,11 @@
     <string name="temporal_password_hint">Digite su contraseña</string>
     <string name="text_title_new_pass">Digite su nueva contraseña</string>
     <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>
+    <string name="check_result_low_title">BAJO RIESGO</string>
+    <string name="check_result_moderated_title">MODERADO RIESGO</string>
+    <string name="check_result_high_title">ALTO RIESGO</string>
+    <string name="check_result_low_notice">Teniendo en cuenta sus últimos chequeos, se ha calculado un bajo riesgo. No interprete esto como un diagnóstico final, si cree que tiene una emergencia llame inmediatamente al 911.</string>
+    <string name="check_result_moderated_notice">Teniendo en cuenta sus últimos chequeos, se ha calculado un moderado riesgo. Será puesto en cola para atención prioritaria, un médico le llamará en el transcurso de unos minutos. No interprete esto como un diagnóstico final, si cree que tiene una emergencia llame inmediatamente al 911.</string>
+    <string name="check_result_high_notice">Se ha calculado un alto riesgo, llame a su médico o al 911.</string>
+    <string name="check_result_disc">Descartar chequeo y volver a empezar</string>
 </resources>

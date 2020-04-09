@@ -10,4 +10,10 @@
     <color name="colorNavigationBottomBar">#FFFFFF</color>
 
     <color name="colorBottomFont">#FFFFFF</color>
+
+    <color name="colorFontForDarkBackground">#FFFFFF</color>
+
+    <color name="colorBackgroundGreenAlert">#74B628</color>
+    <color name="colorBackgroundOrangeAlert">#CA7100</color>
+    <color name="colorBackgroundRedAlert">#BC0025</color>
 </resources>
