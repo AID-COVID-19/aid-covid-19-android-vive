@@ -1,6 +1,8 @@
 package com.ai.covid19.tracking.android.ui.check
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,7 @@ class Check1Fragment : Fragment() {
         binding = FragmentCheck1Binding.inflate(inflater, container, false)
         howYouFeelSetup()
         botherSetup()
+        otherSymptomsOrDiscomfortSetup()
         botherFillContent()
         return binding.root
     }
@@ -195,4 +198,18 @@ class Check1Fragment : Fragment() {
                 Log.i(this.javaClass.canonicalName , "Check 1 was added to database.");
             }
         }
+
+    private fun otherSymptomsOrDiscomfortSetup(){
+        binding.otherSymptomsOrDiscomfort.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                if (!s.isBlank())
+                    viewModelCheck.otherSymptomsOrDiscomfort = s.toString()
+            }
+        })
+    }
 }
