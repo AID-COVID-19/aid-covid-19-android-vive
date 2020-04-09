@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtCheckPrivacyAdvise"
+        android:id="@+id/txtDisc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -50,7 +50,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/button_end"
         style="@style/TextAppearance.BlackButtonSmall"
-        app:layout_constraintBottom_toTopOf="@+id/txtCheckPrivacyAdvise"
+        app:layout_constraintBottom_toTopOf="@+id/txtDisc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
