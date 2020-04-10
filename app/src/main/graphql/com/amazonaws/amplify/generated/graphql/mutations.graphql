@@ -126,6 +126,7 @@ mutation CreateCheck($input: CreateCheckInput!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 mutation UpdateCheck($input: UpdateCheckInput!) {
@@ -165,6 +166,7 @@ mutation UpdateCheck($input: UpdateCheckInput!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 mutation DeleteCheck($input: DeleteCheckInput!) {
@@ -204,5 +206,6 @@ mutation DeleteCheck($input: DeleteCheckInput!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }

@@ -104,5 +104,5 @@
     <string name="check_result_low_notice">Según las respuestas dadas, usted está en bajo riesgo. Siga las instrucciones dadas por su médico. Si cree que tiene una emergencia llame inmediatamente al 911.</string>
     <string name="check_result_moderated_notice">Según las respuestas dadas, usted está en moderado riesgo. Será puesto en cola para atención prioritaria, un médico le llamará en el transcurso de unos minutos. Si cree que tiene una emergencia llame inmediatamente al 911.</string>
     <string name="check_result_high_notice">Usted está en algo riesgo, llame inmediatamente a su médico o al 911.</string>
-    <string name="check_result_disc">Descartar chequeo y volver a empezar</string>
+    <string name="check_result_disc">Editar y volver a evaluar</string>
 </resources>

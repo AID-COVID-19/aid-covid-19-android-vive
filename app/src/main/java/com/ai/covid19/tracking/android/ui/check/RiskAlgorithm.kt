@@ -21,7 +21,7 @@ class RiskAlgorithm(
          *   MODERATE priority consultation
          *   LOW non-priority consultation
          *   **/
-        HIGH, MODERATE, LOW
+        HIGH, MODERATE, LOW, DISCARDED
     }
 
     lateinit var riskClassification: RiskClassification

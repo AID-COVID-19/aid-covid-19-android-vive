@@ -110,6 +110,7 @@ query GetCheck($identityId: String!, $checkTimestamp: AWSTimestamp!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 query ListChecks(
@@ -154,6 +155,7 @@ query ListChecks(
       HaveYouBecomeEasilyAnnoyedOrIrritable
       HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
       AreYouTakingYourMedications
+      RiskResult
     }
     nextToken
   }
