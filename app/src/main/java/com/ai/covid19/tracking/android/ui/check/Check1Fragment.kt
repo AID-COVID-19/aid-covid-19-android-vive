@@ -110,7 +110,10 @@ class Check1Fragment : Fragment() {
         binding.respiratoryDistress.setOnCheckedChangeListener { view, isChecked ->
             botherOptions( view.id, isChecked )
         }
-        binding.dizziness.setOnCheckedChangeListener { view, isChecked ->
+        binding.confusion.setOnCheckedChangeListener { view, isChecked ->
+            botherOptions( view.id, isChecked )
+        }
+        binding.bluishLipsOrFace.setOnCheckedChangeListener { view, isChecked ->
             botherOptions( view.id, isChecked )
         }
     }
@@ -133,7 +136,8 @@ class Check1Fragment : Fragment() {
             R.id.fatigueWhenWalkingOrClimbingStairs -> viewModelCheck.fatigueWhenWalkingOrClimbingStairs = isChecked
             R.id.feelingShortOfBreathWithDailyActivities -> viewModelCheck.feelingShortOfBreathWithDailyActivities = isChecked
             R.id.respiratoryDistress -> viewModelCheck.respiratoryDistress = isChecked
-            R.id.dizziness -> viewModelCheck.dizziness = isChecked
+            R.id.confusion -> viewModelCheck.newConfusionOrInabilityToArouse = isChecked
+            R.id.bluishLipsOrFace -> viewModelCheck.bluishLipsOrFace = isChecked
         }
     }
 
@@ -154,7 +158,8 @@ class Check1Fragment : Fragment() {
         binding.fatigueWhenWalkingOrClimbingStairs.isChecked = viewModelCheck.fatigueWhenWalkingOrClimbingStairs
         binding.feelingShortOfBreathWithDailyActivities.isChecked = viewModelCheck.feelingShortOfBreathWithDailyActivities
         binding.respiratoryDistress.isChecked = viewModelCheck.respiratoryDistress
-        binding.dizziness.isChecked = viewModelCheck.dizziness
+        binding.confusion.isChecked = viewModelCheck.newConfusionOrInabilityToArouse
+        binding.bluishLipsOrFace.isChecked = viewModelCheck.bluishLipsOrFace
         if(!viewModelCheck.otherSymptomsOrDiscomfort.isNullOrBlank())
             binding.otherSymptomsOrDiscomfort.setText(viewModelCheck.otherSymptomsOrDiscomfort)
     }
@@ -181,7 +186,8 @@ class Check1Fragment : Fragment() {
             .fatigueWhenWalkingOrClimbingStairs(viewModelCheck.fatigueWhenWalkingOrClimbingStairs)
             .feelingShortOfBreathWithDailyActivities(viewModelCheck.feelingShortOfBreathWithDailyActivities)
             .respiratoryDistress(viewModelCheck.respiratoryDistress)
-            .dizziness(viewModelCheck.dizziness)
+            .confusion(viewModelCheck.newConfusionOrInabilityToArouse)
+            .bluishLipsOrFace(viewModelCheck.bluishLipsOrFace)
             .otherSymptomsOrDiscomfort(viewModelCheck.otherSymptomsOrDiscomfort).build()
 
         viewModelCheck.mAWSAppSyncClient?.mutate(CreateCheckMutation.builder().input(createCheckInput).build())

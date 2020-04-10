@@ -13,4 +13,6 @@
     <string name="breath_range_2">"between 12 and 19"</string>
     <string name="breath_range_3">"between 20 and 28"</string>
     <string name="breath_range_4">"greater than 28</string>
+
+    <string name="programming_error">"programming error</string>
 </resources>

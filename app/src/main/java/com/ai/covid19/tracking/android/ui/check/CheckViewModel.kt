@@ -35,11 +35,12 @@ class CheckViewModel : ViewModel() {
     var fatigueWhenWalkingOrClimbingStairs: Boolean = false
     var feelingShortOfBreathWithDailyActivities: Boolean = false
     var respiratoryDistress: Boolean = false
-    var dizziness: Boolean = false
+    var newConfusionOrInabilityToArouse: Boolean = false
+    var bluishLipsOrFace: Boolean = false
     var otherSymptomsOrDiscomfort: String? = null
 
-    var temperatureRange: String? = null
-    var breathsPerMinuteRange: String? = null
+    lateinit var temperatureRange: String
+    lateinit var breathsPerMinuteRange: String
     var bloodPressureLowValue: Int? = null
     var bloodPressureHighValue: Int? = null
     var haveYouBeenNervousOrAnxious: String? = null
@@ -59,7 +60,4 @@ class CheckViewModel : ViewModel() {
         value = "This is Check Fragment"
     }
     val text: LiveData<String> = _text
-
-
-
 }

@@ -54,7 +54,8 @@
     <string name="check_1_q_2_a_15">sensación de falta de aire con actividades cotidianas</string>
     <string name="check_1_q_2_a_16">sensación de esfuerzo para respirar</string>
     <string name="check_1_q_2_a_17">dificultad respiratoria</string>
-    <string name="check_1_q_2_a_18">mareo</string>
+    <string name="check_1_q_2_a_18">confusión, desorientación o dificultad para despertar</string>
+    <string name="check_1_q_2_a_19">tono azulado en los labios o el rostro</string>
     <string name="next_title">Siguiente</string>
     <string name="check_1_q_3">Si tiene otros síntomas o molestias, descríbalos.</string>
     <string name="check_2_q_1">¿Cuál es su temperatura corporal en grados celsius (ºC)?</string>
@@ -100,8 +101,8 @@
     <string name="check_result_low_title">BAJO RIESGO</string>
     <string name="check_result_moderated_title">MODERADO RIESGO</string>
     <string name="check_result_high_title">ALTO RIESGO</string>
-    <string name="check_result_low_notice">Teniendo en cuenta sus últimos chequeos, se ha calculado un bajo riesgo. No interprete esto como un diagnóstico final, si cree que tiene una emergencia llame inmediatamente al 911.</string>
-    <string name="check_result_moderated_notice">Teniendo en cuenta sus últimos chequeos, se ha calculado un moderado riesgo. Será puesto en cola para atención prioritaria, un médico le llamará en el transcurso de unos minutos. No interprete esto como un diagnóstico final, si cree que tiene una emergencia llame inmediatamente al 911.</string>
-    <string name="check_result_high_notice">Se ha calculado un alto riesgo, llame a su médico o al 911.</string>
+    <string name="check_result_low_notice">Según las respuestas dadas, usted está en bajo riesgo. Siga las instrucciones dadas por su médico. Si cree que tiene una emergencia llame inmediatamente al 911.</string>
+    <string name="check_result_moderated_notice">Según las respuestas dadas, usted está en moderado riesgo. Será puesto en cola para atención prioritaria, un médico le llamará en el transcurso de unos minutos. Si cree que tiene una emergencia llame inmediatamente al 911.</string>
+    <string name="check_result_high_notice">Usted está en algo riesgo, llame inmediatamente a su médico o al 911.</string>
     <string name="check_result_disc">Descartar chequeo y volver a empezar</string>
 </resources>

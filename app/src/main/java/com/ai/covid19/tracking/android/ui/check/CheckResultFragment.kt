@@ -1,22 +1,14 @@
 package com.ai.covid19.tracking.android.ui.check
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheckResultBinding
-import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
-import com.amazonaws.mobile.client.AWSMobileClient
-import com.apollographql.apollo.GraphQLCall
-import com.apollographql.apollo.exception.ApolloException
-import type.UpdateCheckInput
-import javax.annotation.Nonnull
 
 class CheckResultFragment : Fragment() {
 

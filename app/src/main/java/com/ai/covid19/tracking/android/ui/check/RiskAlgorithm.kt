@@ -10,8 +10,9 @@ class RiskAlgorithm(
     private val temperature_range: String,
     private val headache: Boolean = false,
     private val breath_range: String,
-    private val chestOrBackPain: Boolean,
-    private val last12hTemperatures: Map<Long, Boolean>
+    private val last12hPainChestMeasures: Map<Long, Boolean>,
+    private val bluishLipsOrFace: Boolean = false,
+    private val newConfusionOrInabilityToArouse: Boolean = false
 ) {
 
     enum class RiskClassification {
@@ -33,73 +34,62 @@ class RiskAlgorithm(
      *  breath_range_3 = greater than 28
      *  **/
     fun calculateRisk() : RiskClassification  {
-        if (breath_range == context.getString(R.string.breath_range_4)
-            && chestOrBackPain
-            && (temperature_range == context.getString(R.string.temperature_range_4)
-                    || temperature_range == context.getString(R.string.temperature_range_3)
-                    )
+        riskClassification = if (breath_range == context.getString(R.string.breath_range_4)
+            || persistentChestPain(last12hPainChestMeasures) || bluishLipsOrFace || newConfusionOrInabilityToArouse
         ) {
-            return if (persistentFever(last12hTemperatures)){
-                RiskClassification.HIGH
-            } else {
-                RiskClassification.MODERATE
-            }
+            return RiskClassification.HIGH
         } else if (breath_range == context.getString(R.string.breath_range_3)
-            && headache
-            && (temperature_range == context.getString(R.string.temperature_range_4)
+            || headache
+            || (temperature_range == context.getString(R.string.temperature_range_4)
                     || temperature_range == context.getString(R.string.temperature_range_3)
                     )
         ) {
-            riskClassification = RiskClassification.MODERATE
+            RiskClassification.MODERATE
         } else {
-            riskClassification = RiskClassification.LOW
+            RiskClassification.LOW
         }
         return riskClassification
     }
 
     /**
-     *  Give a list of booleans with it's timestamp, of last 12 hours measures, where true means fever and false not fever.
-     *  persistentFever = true if every 4 hours had fever,
-     *  in the 4 hours windows, fever = true when the early measure in the timeline is true
+     *  Give a list of booleans with it's timestamp, of last 12 hours measures, where true means chest pain and false not pain.
+     *  persistentChestPain = true if every window time had it
      **/
-    var persistentFever = false
+    var persistentChestPain = false
+    var date1: DateTime? = null
+    var date2: DateTime? = null
 
-    private fun persistentFever(last12hTemperatures: Map<Long, Boolean>) : Boolean{
-        var hadFeverWindows4h_1 = false
-        var hadFeverWindows4h_2 = false
-        var hadFeverWindows4h_3 = false
-        val sortedLast12hTemperatures = last12hTemperatures.toSortedMap()
+    private fun persistentChestPain(last12hMeasures: Map<Long, Boolean>) : Boolean{
+        var windows4h_1 = false
+        var windows4h_2 = false
+        var windows4h_3 = false
+        val sortedLast12hMeasures = last12hMeasures.toSortedMap()
 
-        if((DateTime.fromUnix(sortedLast12hTemperatures.firstKey()) until DateTime.fromUnix(sortedLast12hTemperatures.lastKey()))
+        if((DateTime.fromUnix(sortedLast12hMeasures.firstKey()) until DateTime.fromUnix(sortedLast12hMeasures.lastKey()))
             .span.hours > 12)
             throw Exception("The given list have a hour timestamp windows grater than 12 hours. Should be equal or less.")
 
-        var date1: DateTime? = null
-        var date2: DateTime?
-        var hours: Int
-        sortedLast12hTemperatures.forEach{
+        sortedLast12hMeasures.forEach{
             if ( date1 == null) {
                 date1 = DateTime.fromUnix(it.key)
-                hadFeverWindows4h_1 = it.value
+                windows4h_1 = it.value
             }
             else {
                 date2 = DateTime.fromUnix(it.key)
-                hadFeverWindows4h_2 = it.value
-                hours = (date1!! until date2!!).span.hours
-                when {
-                    hours <= 4 -> {
-                        hadFeverWindows4h_1 = it.value
+                when ((date1!! until date2!!).span.hours) {
+                    in 0..1 -> {
+                        windows4h_1 = it.value
                     }
-                    hours in 5..8 -> {
-                        hadFeverWindows4h_2 = it.value
+                    in 4..6 -> {
+                        windows4h_2 = it.value
                     }
-                    else -> {
-                        hadFeverWindows4h_3 = it.value
+                    in 7..12 -> {
+                        windows4h_3 = it.value
                     }
                 }
             }
         }
-        persistentFever = hadFeverWindows4h_1 && hadFeverWindows4h_2 && hadFeverWindows4h_3
-        return persistentFever
+        persistentChestPain = windows4h_1 && windows4h_2 && windows4h_3
+        return persistentChestPain
     }
 }

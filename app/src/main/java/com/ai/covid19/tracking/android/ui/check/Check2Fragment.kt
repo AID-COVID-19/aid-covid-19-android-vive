@@ -53,7 +53,7 @@ class Check2Fragment : Fragment() {
                 R.id.temperature_range_2 -> getString(R.string.temperature_range_2)
                 R.id.temperature_range_3 -> getString(R.string.temperature_range_3)
                 R.id.temperature_range_4 -> getString(R.string.temperature_range_4)
-                else -> null
+                else -> getString(R.string.programming_error)
             }
         }
     }
@@ -67,7 +67,7 @@ class Check2Fragment : Fragment() {
                 R.id.breath_range_2 -> getString(R.string.breath_range_2)
                 R.id.breath_range_3 -> getString(R.string.breath_range_3)
                 R.id.breath_range_4 -> getString(R.string.breath_range_4)
-                else -> null
+                else -> getString(R.string.programming_error)
             }
         }
     }
@@ -117,9 +117,25 @@ class Check2Fragment : Fragment() {
                 Log.e("Error", e.toString())
             }
             override fun onResponse(response: com.apollographql.apollo.api.Response<UpdateCheckMutation.Data?>) {
-                findNavController().navigate(R.id.action_check2Fragment_to_check3Fragment)
+                runEvaluation()
+                findNavController().navigate(R.id.action_check2Fragment_to_checkResultFragment)
                 Log.i(this.javaClass.canonicalName , "Check 2 was added to database.");
             }
         }
 
+    private fun runEvaluation() {
+        val last12hTemperatures: Map<Long, Boolean> = mapOf(Pair(1586418640000L, viewModelCheck.fever),
+            Pair(1586398840000L, true),
+            Pair(1586380240000L, true)
+        )
+        val riskAlgorithm = RiskAlgorithm(context = requireContext(),
+            breath_range = viewModelCheck.breathsPerMinuteRange,
+            last12hPainChestMeasures = last12hTemperatures,
+            headache = viewModelCheck.headache,
+            temperature_range = viewModelCheck.temperatureRange,
+            newConfusionOrInabilityToArouse = viewModelCheck.newConfusionOrInabilityToArouse,
+            bluishLipsOrFace = viewModelCheck.bluishLipsOrFace
+        )
+        viewModelCheck.riskResult = riskAlgorithm.calculateRisk()
+    }
 }

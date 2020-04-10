@@ -111,7 +111,8 @@ mutation CreateCheck($input: CreateCheckInput!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -149,7 +150,8 @@ mutation UpdateCheck($input: UpdateCheckInput!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -187,7 +189,8 @@ mutation DeleteCheck($input: DeleteCheckInput!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange

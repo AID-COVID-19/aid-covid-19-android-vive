@@ -195,7 +195,8 @@ subscription OnCreateCheck(
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -245,7 +246,8 @@ subscription OnUpdateCheck(
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -295,7 +297,8 @@ subscription OnDeleteCheck(
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange

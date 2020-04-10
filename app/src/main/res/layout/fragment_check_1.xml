@@ -232,10 +232,19 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/dizziness"
+                        android:id="@+id/confusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_18"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/bluishLipsOrFace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_1_q_2_a_19"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
 

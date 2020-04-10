@@ -95,7 +95,8 @@ query GetCheck($identityId: String!, $checkTimestamp: AWSTimestamp!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -138,7 +139,8 @@ query ListChecks(
       feelingShortOfBreathWithDailyActivities
       feelingOfStrainingToBreathe
       respiratoryDistress
-      dizziness
+      confusion
+      bluishLipsOrFace
       otherSymptomsOrDiscomfort
       temperatureRange
       breathsPerMinuteRange
