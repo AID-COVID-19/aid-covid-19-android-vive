@@ -111,7 +111,8 @@ mutation CreateCheck($input: CreateCheckInput!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -125,6 +126,7 @@ mutation CreateCheck($input: CreateCheckInput!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 mutation UpdateCheck($input: UpdateCheckInput!) {
@@ -149,7 +151,8 @@ mutation UpdateCheck($input: UpdateCheckInput!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -163,6 +166,7 @@ mutation UpdateCheck($input: UpdateCheckInput!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 mutation DeleteCheck($input: DeleteCheckInput!) {
@@ -187,7 +191,8 @@ mutation DeleteCheck($input: DeleteCheckInput!) {
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -201,5 +206,6 @@ mutation DeleteCheck($input: DeleteCheckInput!) {
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }

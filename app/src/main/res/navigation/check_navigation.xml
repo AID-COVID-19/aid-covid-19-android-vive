@@ -19,18 +19,29 @@
         android:label="Check1Fragment" >
         <action
             android:id="@+id/action_check1Fragment_to_check2Fragment"
-            app:destination="@id/check2Fragment" />
+            app:destination="@id/check2Fragment">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/check2Fragment"
         android:name="com.ai.covid19.tracking.android.ui.check.Check2Fragment"
         android:label="Check2Fragment" >
         <action
-            android:id="@+id/action_check2Fragment_to_check3Fragment"
-            app:destination="@id/check3Fragment" />
+            android:id="@+id/action_check2Fragment_to_checkResultFragment"
+            app:destination="@id/checkResultFragment">
+        </action>
     </fragment>
     <fragment
-        android:id="@+id/check3Fragment"
-        android:name="com.ai.covid19.tracking.android.ui.check.Check3Fragment"
-        android:label="Check3Fragment" />
+        android:id="@+id/checkResultFragment"
+        android:name="com.ai.covid19.tracking.android.ui.check.CheckResultFragment"
+        android:label="CheckResultFragment" >
+        <action
+            android:id="@+id/action_checkResultFragment_to_check1Fragment"
+            app:destination="@id/check1Fragment" >
+            <argument
+                android:name="reset"
+                app:argType="boolean"
+                android:defaultValue="false" />
+        </action>
+    </fragment>
 </navigation>

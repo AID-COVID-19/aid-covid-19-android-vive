@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        amplifySetup()
+        // amplifySetup()
 
         // Finding the Navigation Controller
         val navController = findNavController(R.id.nav_host_fragment)
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openAlarmActivity(view: View) {
-        query()
         val intent = Intent(this, PatientCheckActivity::class.java)
         startActivity(intent)
     }

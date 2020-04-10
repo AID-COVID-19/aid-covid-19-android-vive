@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# Keep the annotation
+-keepclassmembers class * {
+  @proguard.annotation.Keep com.amazonaws.mobileconnectors.apigateway.annotation.Operation;
+}
+
+# Keep the methods
+-keepclassmembers class ** {
+  @com.amazonaws.mobileconnectors.apigateway.annotation.Operation *;
+}

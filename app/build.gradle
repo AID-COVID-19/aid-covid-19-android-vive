@@ -60,6 +60,11 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     //For AWSMobileClient only:
     implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.10'
+    //For admin queries
+    implementation "com.amazonaws:aws-android-sdk-apigateway-core:2.16.11"
+
+    //library for date objects
+    implementation("com.soywiz.korlibs.klock:klock-jvm:1.10.3")
 
     //For the drop-in UI also:
     implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.10'

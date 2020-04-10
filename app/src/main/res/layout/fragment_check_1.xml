@@ -36,26 +36,27 @@
                 android:layout_height="wrap_content">
 
                 <RadioGroup
+                    android:id="@+id/howYouFeel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:transitionGroup="true">
 
                     <RadioButton
-                        android:id="@+id/radio_1"
+                        android:id="@+id/howYouFeel_better"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_1"
                         android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
-                        android:id="@+id/radio_2"
+                        android:id="@+id/howYouFeel_no_better"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_2"
                         android:textAppearance="@style/TextAppearance.Small" />
 
                     <RadioButton
-                        android:id="@+id/radio_3"
+                        android:id="@+id/howYouFeel_worse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_1_a_3"
@@ -79,7 +80,7 @@
 
                 <com.google.android.material.chip.ChipGroup
                     style="@style/TextAppearance.Medium"
-                    android:id="@+id/chip_group"
+                    android:id="@+id/bother"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -87,7 +88,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_1"
+                        android:id="@+id/generalDiscomfort"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_1"
@@ -96,7 +97,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_2"
+                        android:id="@+id/itchyOrSoreThroat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_2"
@@ -105,7 +106,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_3"
+                        android:id="@+id/diarrhea"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_3"
@@ -114,7 +115,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_4"
+                        android:id="@+id/badTasteInTheMouth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_4"
@@ -123,7 +124,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_5"
+                        android:id="@+id/lossOfTasteInFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_5"
@@ -132,7 +133,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_6"
+                        android:id="@+id/lossOfSmell"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_6"
@@ -141,7 +142,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_7"
+                        android:id="@+id/musclePains"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_7"
@@ -150,7 +151,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_8"
+                        android:id="@+id/chestOrBackPain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_8"
@@ -159,7 +160,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_9"
+                        android:id="@+id/headache"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_9"
@@ -168,7 +169,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_10"
+                        android:id="@+id/wetCoughWithPhlegm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_10"
@@ -177,7 +178,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_11"
+                        android:id="@+id/dryCough"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_11"
@@ -186,7 +187,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_12"
+                        android:id="@+id/chill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_12"
@@ -195,7 +196,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_13"
+                        android:id="@+id/fever"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_13"
@@ -204,7 +205,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_14"
+                        android:id="@+id/fatigueWhenWalkingOrClimbingStairs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_14"
@@ -213,7 +214,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_15"
+                        android:id="@+id/feelingShortOfBreathWithDailyActivities"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_15"
@@ -222,16 +223,7 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/check_1_q_2_a_16"
-                        app:checkedIconEnabled="true"
-                        app:chipIcon="@drawable/ic_done_black_24dp" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_17"
+                        android:id="@+id/respiratoryDistress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_17"
@@ -240,10 +232,19 @@
 
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:id="@+id/chip_answer_18"
+                        android:id="@+id/confusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/check_1_q_2_a_18"
+                        app:checkedIconEnabled="true"
+                        app:chipIcon="@drawable/ic_done_black_24dp" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:id="@+id/bluishLipsOrFace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_1_q_2_a_19"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
 
@@ -252,7 +253,7 @@
             <TableRow android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/editText_other_symptom"
+                    android:id="@+id/otherSymptomsOrDiscomfort"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"

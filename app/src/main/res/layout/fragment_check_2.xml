@@ -31,31 +31,34 @@
                     android:lines="2"
                     android:text="@string/check_2_q_1"
                     android:textAppearance="@style/TextAppearance.Large" />
-            <RadioGroup android:transitionGroup="true">
+            <RadioGroup
+                android:id="@+id/temperature"
+                android:transitionGroup="true"
+                >
 
                 <RadioButton
-                    android:id="@+id/radio_1"
+                    android:id="@+id/temperature_range_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_1_a_1"
                     android:textAppearance="@style/TextAppearance.Small" />
 
                 <RadioButton
-                    android:id="@+id/radio_2"
+                    android:id="@+id/temperature_range_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_1_a_2"
                     android:textAppearance="@style/TextAppearance.Small" />
 
                 <RadioButton
-                    android:id="@+id/radio_3"
+                    android:id="@+id/temperature_range_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_1_a_3"
                     android:textAppearance="@style/TextAppearance.Small" />
 
                 <RadioButton
-                    android:id="@+id/radio_4"
+                    android:id="@+id/temperature_range_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_1_a_4"
@@ -71,33 +74,34 @@
                     android:text="@string/check_2_q_2"
                     android:textAppearance="@style/TextAppearance.Large" />
             <RadioGroup
+                android:id="@+id/breath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:transitionGroup="true">
 
                 <RadioButton
-                    android:id="@+id/radio_2_1"
+                    android:id="@+id/breath_range_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_2_a_1"
                     android:textAppearance="@style/TextAppearance.Small" />
 
                 <RadioButton
-                    android:id="@+id/radio_2_2"
+                    android:id="@+id/breath_range_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_2_a_2"
                     android:textAppearance="@style/TextAppearance.Small" />
 
                 <RadioButton
-                    android:id="@+id/radio_2_3"
+                    android:id="@+id/breath_range_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_2_a_3"
                     android:textAppearance="@style/TextAppearance.Small" />
 
                 <RadioButton
-                    android:id="@+id/radio_2_4"
+                    android:id="@+id/breath_range_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/check_2_q_2_a_4"
@@ -116,7 +120,7 @@
                 >
 
                 <EditText
-                    android:id="@+id/editText_blood_pressure_max"
+                    android:id="@+id/blood_pressure_max"
                     android:layout_width="0dp"
                     android:layout_column="1"
                     android:layout_margin="4dp"
@@ -126,7 +130,7 @@
                     android:textAppearance="@style/TextAppearance.Medium" />
 
                 <EditText
-                    android:id="@+id/editText_blood_pressure_min"
+                    android:id="@+id/blood_pressure_min"
                     android:layout_width="0dp"
                     android:layout_margin="4dp"
                     android:layout_weight="1"

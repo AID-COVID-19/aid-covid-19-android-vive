@@ -195,7 +195,8 @@ subscription OnCreateCheck(
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -209,6 +210,7 @@ subscription OnCreateCheck(
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 subscription OnUpdateCheck(
@@ -245,7 +247,8 @@ subscription OnUpdateCheck(
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -259,6 +262,7 @@ subscription OnUpdateCheck(
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
 subscription OnDeleteCheck(
@@ -295,7 +299,8 @@ subscription OnDeleteCheck(
     feelingShortOfBreathWithDailyActivities
     feelingOfStrainingToBreathe
     respiratoryDistress
-    dizziness
+    confusion
+    bluishLipsOrFace
     otherSymptomsOrDiscomfort
     temperatureRange
     breathsPerMinuteRange
@@ -309,5 +314,6 @@ subscription OnDeleteCheck(
     HaveYouBecomeEasilyAnnoyedOrIrritable
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
+    RiskResult
   }
 }
