@@ -25,8 +25,8 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPhoneBinding.inflate(inflater,container, false)
-        binding.buttonAuthNext1.setOnClickListener{onNextButtonClicked()}
+        binding = FragmentPhoneBinding.inflate(inflater, container, false)
+        binding.buttonAuthNext1.setOnClickListener { onNextButtonClicked() }
         binding.countryCodePicker.setOnCountryChangeListener(this)
         binding.countryCodePicker.setAutoDetectedCountry(true)
         return binding.root
@@ -46,16 +46,12 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
                 activity?.finish()
             }
         })
-        viewModel.authorizationFailedNeedsNotification.observe(
+        viewModel.lastErrorStringRes.observe(
             viewLifecycleOwner,
-            Observer { needsNotification ->
-                if (needsNotification) {
-                    viewModel.setAuthorizationFailedNeedsNotification(false)
-                    Toast.makeText(
-                        context,
-                        R.string.auth_invalid_credentials_provided,
-                        Toast.LENGTH_LONG
-                    ).show()
+            Observer {
+                it?.let {
+                    Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+                    viewModel.setLastErrorStringRes(null)
                 }
             })
     }
@@ -66,8 +62,9 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
     }
 
     private fun onNextButtonClicked() {
-        viewModel.phoneNumber = binding.editTextPhone.text.toString()
-        viewModel.phoneTemporalPassword = binding.editTextPassword.text.toString()
-        viewModel.signIn("+" + viewModel.countryCode + viewModel.phoneNumber, viewModel.phoneTemporalPassword!!)
+        viewModel.onNextButtonClicked(
+            binding.editTextPhone.text.toString(),
+            binding.editTextPassword.text.toString()
+        )
     }
 }

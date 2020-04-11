@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.ai.covid19.tracking.android.R
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.Callback
@@ -40,10 +41,10 @@ class AuthViewModel : ViewModel() {
         isNewPassDone.value = value
     }
 
-    val authorizationFailedNeedsNotification = MutableLiveData<Boolean>()
+    val lastErrorStringRes = MutableLiveData<Int?>()
 
-    fun setAuthorizationFailedNeedsNotification(needsNotification: Boolean) = runOnUiThread {
-        authorizationFailedNeedsNotification.value = needsNotification
+    fun setLastErrorStringRes(newStringRes: Int?) = runOnUiThread {
+        lastErrorStringRes.value = newStringRes
     }
 
     init {
@@ -56,7 +57,7 @@ class AuthViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun signIn(username: String, password: String) {
+    private fun signIn(username: String, password: String) {
         if (isBusy)
             return
 
@@ -87,7 +88,7 @@ class AuthViewModel : ViewModel() {
                     Log.e(this.javaClass.canonicalName, "Sign-in error", e)
 
                     if (e is NotAuthorizedException) {
-                        setAuthorizationFailedNeedsNotification(true)
+                        setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
                     }
                 }
             })
@@ -110,5 +111,16 @@ class AuthViewModel : ViewModel() {
                 }
             })
 
+    }
+
+    fun onNextButtonClicked(typedPhoneNumber: String, typedTempPassword: String) {
+        phoneNumber = typedPhoneNumber.trim()
+        phoneTemporalPassword = typedTempPassword
+
+        if (phoneNumber!!.isEmpty() || phoneTemporalPassword!!.isEmpty()) {
+            setLastErrorStringRes(R.string.auth_incomplete_fields)
+        } else {
+            signIn("+$countryCode$phoneNumber", phoneTemporalPassword!!)
+        }
     }
 }
