@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -45,6 +46,18 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
                 activity?.finish()
             }
         })
+        viewModel.authorizationFailedNeedsNotification.observe(
+            viewLifecycleOwner,
+            Observer { needsNotification ->
+                if (needsNotification) {
+                    viewModel.setAuthorizationFailedNeedsNotification(false)
+                    Toast.makeText(
+                        context,
+                        R.string.auth_invalid_credentials_provided,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
     }
 
     override fun onCountrySelected() {

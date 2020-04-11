@@ -4,12 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.amazonaws.mobile.auth.core.IdentityManager
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.Callback
 import com.amazonaws.mobile.client.results.SignInResult
 import com.amazonaws.mobile.client.results.SignInState
+import com.amazonaws.services.cognitoidentityprovider.model.NotAuthorizedException
 
 class AuthViewModel : ViewModel() {
 
@@ -17,6 +17,11 @@ class AuthViewModel : ViewModel() {
     var countryName:String? = null
     var phoneNumber:String? = null
     var phoneTemporalPassword:String? = null
+
+    // This is to prevent duplicate-operation errors, such as calling
+    // AWSMobileClient.getInstance().signIn() twice, which causes a crash:
+    private var isBusy = false
+
     val isTempSignIn = MutableLiveData<Boolean>()
 
     fun tempSigIn(value: Boolean) {
@@ -35,6 +40,12 @@ class AuthViewModel : ViewModel() {
         isNewPassDone.value = value
     }
 
+    val authorizationFailedNeedsNotification = MutableLiveData<Boolean>()
+
+    fun setAuthorizationFailedNeedsNotification(needsNotification: Boolean) = runOnUiThread {
+        authorizationFailedNeedsNotification.value = needsNotification
+    }
+
     init {
         isTempSignIn.value = false
         isSignIn.value = false
@@ -46,12 +57,18 @@ class AuthViewModel : ViewModel() {
     val text: LiveData<String> = _text
 
     fun signIn(username: String, password: String) {
+        if (isBusy)
+            return
+
+        isBusy = true
+
         AWSMobileClient.getInstance().signIn(
             username,
             password,
             null,
             object : Callback<SignInResult> {
                 override fun onResult(signInResult: SignInResult) {
+                    isBusy = false
                     runOnUiThread(Runnable {
                         Log.d(
                             this.javaClass.canonicalName,
@@ -65,8 +82,13 @@ class AuthViewModel : ViewModel() {
                     })
                 }
 
-                override fun onError(e: java.lang.Exception) {
+                override fun onError(e: Exception) {
+                    isBusy = false
                     Log.e(this.javaClass.canonicalName, "Sign-in error", e)
+
+                    if (e is NotAuthorizedException) {
+                        setAuthorizationFailedNeedsNotification(true)
+                    }
                 }
             })
     }

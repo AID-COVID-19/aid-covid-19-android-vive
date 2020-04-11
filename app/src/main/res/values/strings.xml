@@ -95,6 +95,7 @@
     <string name="auth_phone_title">Digite su número de celular</string>
     <string name="auth_send_phone_code">Envíar Código</string>
     <string name="auth_phone_hint">###-####</string>
+    <string name="auth_invalid_credentials_provided">The provided phone or password is incorrect.</string>
     <string name="temporal_password_hint">Digite su contraseña</string>
     <string name="text_title_new_pass">Digite su nueva contraseña</string>
     <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>
