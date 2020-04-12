@@ -128,56 +128,14 @@ class Check2Fragment : Fragment() {
                 Log.e("Error", e.toString())
             }
             override fun onResponse(response: com.apollographql.apollo.api.Response<UpdateCheckMutation.Data?>) {
-                queryLast12hrChestPain()
+                val direction = Check2FragmentDirections.actionCheck2FragmentToCheckResultFragment()
+                navigate(direction)
                 Log.i(this.javaClass.canonicalName , "Check 2 was added to database.");
             }
         }
-
-    private fun runEvaluation(last12hMeasures: Map<Long, Boolean?>) {
-        val riskAlgorithm = RiskAlgorithm(context = requireContext(),
-            breath_range = viewModelCheck.breathsPerMinuteRange,
-            last12hPainChestMeasures = last12hMeasures,
-            headache = viewModelCheck.headache,
-            temperature_range = viewModelCheck.temperatureRange,
-            newConfusionOrInabilityToArouse = viewModelCheck.newConfusionOrInabilityToArouse,
-            bluishLipsOrFace = viewModelCheck.bluishLipsOrFace
-        )
-        viewModelCheck.riskResult = riskAlgorithm.calculateRisk()
-        val direction = Check2FragmentDirections.actionCheck2FragmentToCheckResultFragment()
-        navigate(direction)
-    }
 
     private fun navigate(destination: NavDirections) = with(findNavController()) {
         currentDestination?.getAction(destination.actionId)
             ?.let { navigate(destination) }
     }
-
-    private fun queryLast12hrChestPain() {
-        val dateTime12HrAgo = DateTime.now() - 12.hours
-        val filter = TableCheckFilterInput.builder().checkTimestamp(
-            TableIntFilterInput.builder().ge(dateTime12HrAgo.unixMillis.toInt()).build()
-        ).build()
-        viewModelCheck.mAWSAppSyncClient?.query(ListChecksQuery.builder().filter(filter).build())
-            ?.responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
-            ?.enqueue(callbackList)
-    }
-
-    private val callbackList: GraphQLCall.Callback<ListChecksQuery.Data?> =
-        object : GraphQLCall.Callback<ListChecksQuery.Data?>() {
-
-            override fun onFailure(@Nonnull e: ApolloException) {
-                Log.e("ERROR", e.toString())
-            }
-
-            override fun onResponse(response: com.apollographql.apollo.api.Response<ListChecksQuery.Data?>) {
-                if( response.data() != null) {
-                    Log.i("Results", response.data()?.listChecks()?.items().toString())
-                    val last12hMeasures: MutableMap<Long, Boolean?> = ArrayMap()
-                    response.data()?.listChecks()?.items()?.forEach {
-                        last12hMeasures[it.checkTimestamp()] = it.chestOrBackPain()
-                    }
-                    runEvaluation(last12hMeasures)
-                }
-            }
-        }
 }

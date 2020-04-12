@@ -99,6 +99,7 @@
     <string name="text_title_new_pass">Digite su nueva contraseña</string>
     <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>
     <string name="check_result_low_title">BAJO RIESGO</string>
+    <string name="check_result_score">0.999999</string>
     <string name="check_result_moderated_title">MODERADO RIESGO</string>
     <string name="check_result_high_title">ALTO RIESGO</string>
     <string name="check_result_low_notice">Según las respuestas dadas, usted está en bajo riesgo. Siga las instrucciones dadas por su médico. Si cree que tiene una emergencia llame inmediatamente al 911.</string>

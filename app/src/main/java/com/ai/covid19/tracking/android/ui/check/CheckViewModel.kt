@@ -9,6 +9,7 @@ import kotlin.properties.Delegates
 class CheckViewModel : ViewModel() {
 
     lateinit var riskResult: RiskAlgorithm.RiskClassification
+    var riskScore: Double = 0.0
 
     internal var mAWSAppSyncClient: AWSAppSyncClient? = null
     var timeStampLongId by Delegates.notNull<Long>()
