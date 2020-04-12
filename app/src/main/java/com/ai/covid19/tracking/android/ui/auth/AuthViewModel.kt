@@ -106,7 +106,7 @@ class AuthViewModel : ViewModel() {
             })
     }
 
-    fun confirmSignIn(newPass: String) {
+    private fun confirmSignIn(newPass: String) {
         if (isBusy)
             return
 
@@ -140,6 +140,14 @@ class AuthViewModel : ViewModel() {
             setLastErrorStringRes(R.string.auth_incomplete_fields)
         } else {
             signIn("+$countryCode$phoneNumber", phoneTemporalPassword!!)
+        }
+    }
+
+    fun onNewPasswordProvided(typedNewPassword: String) {
+        if (typedNewPassword.isEmpty()) {
+            setLastErrorStringRes(R.string.auth_no_password_provided)
+        } else {
+            confirmSignIn(typedNewPassword)
         }
     }
 }

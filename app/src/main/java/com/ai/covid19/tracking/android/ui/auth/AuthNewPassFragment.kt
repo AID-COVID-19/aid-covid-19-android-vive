@@ -35,6 +35,6 @@ class AuthNewPassFragment : Fragment() {
     }
 
     private fun onNextButtonClicked() {
-        viewModel.confirmSignIn(binding.editTextNewPassword.text.toString())
+        viewModel.onNewPasswordProvided(binding.editTextNewPassword.text.toString())
     }
 }
