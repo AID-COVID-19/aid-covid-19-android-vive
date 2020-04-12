@@ -11,6 +11,7 @@ import com.amazonaws.mobile.client.Callback
 import com.amazonaws.mobile.client.results.SignInResult
 import com.amazonaws.mobile.client.results.SignInState
 import com.amazonaws.services.cognitoidentityprovider.model.NotAuthorizedException
+import com.amazonaws.services.cognitoidentityprovider.model.UserNotFoundException
 
 class AuthViewModel : ViewModel() {
 
@@ -87,8 +88,9 @@ class AuthViewModel : ViewModel() {
                     isBusy = false
                     Log.e(this.javaClass.canonicalName, "Sign-in error", e)
 
-                    if (e is NotAuthorizedException) {
-                        setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
+                    when (e) {
+                        is NotAuthorizedException -> setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
+                        is UserNotFoundException -> setLastErrorStringRes(R.string.auth_user_not_found)
                     }
                 }
             })

@@ -97,6 +97,7 @@
     <string name="auth_phone_hint">###-####</string>
     <string name="auth_invalid_credentials_provided">El número de celular o contraseña son incorrectos. Compruebe nuevamente.</string>
     <string name="auth_incomplete_fields">Debe llenar todos los campos</string>
+    <string name="auth_user_not_found">Usuario no encontrado. Compruebe el número celular.</string>
     <string name="temporal_password_hint">Digite su contraseña</string>
     <string name="text_title_new_pass">Digite su nueva contraseña</string>
     <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>
