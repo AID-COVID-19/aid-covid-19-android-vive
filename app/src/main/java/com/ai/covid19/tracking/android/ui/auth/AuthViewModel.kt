@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ai.covid19.tracking.android.R
+import com.amazonaws.AmazonClientException
+import com.amazonaws.AmazonServiceException
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.Callback
@@ -79,7 +81,13 @@ class AuthViewModel : ViewModel() {
                         when (signInResult.signInState) {
                             SignInState.DONE -> sigIn(true)
                             SignInState.NEW_PASSWORD_REQUIRED -> tempSigIn(true)
-                            else -> Log.d(this.javaClass.canonicalName, "Unsupported sign-in confirmation: " + signInResult.signInState)
+                            else -> {
+                                Log.d(
+                                    this.javaClass.canonicalName,
+                                    "Unsupported sign-in confirmation: " + signInResult.signInState
+                                )
+                                setLastErrorStringRes(R.string.auth_service_exception)
+                            }
                         }
                     })
                 }
@@ -91,6 +99,8 @@ class AuthViewModel : ViewModel() {
                     when (e) {
                         is NotAuthorizedException -> setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
                         is UserNotFoundException -> setLastErrorStringRes(R.string.auth_user_not_found)
+                        is AmazonClientException -> setLastErrorStringRes(R.string.auth_client_exception)
+                        is AmazonServiceException -> setLastErrorStringRes(R.string.auth_service_exception)
                     }
                 }
             })
