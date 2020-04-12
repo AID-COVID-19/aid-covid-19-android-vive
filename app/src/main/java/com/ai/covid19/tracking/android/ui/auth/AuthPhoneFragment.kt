@@ -62,7 +62,7 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
     }
 
     private fun onNextButtonClicked() {
-        viewModel.onNextButtonClicked(
+        viewModel.onPhoneAndPasswordProvided(
             binding.editTextPhone.text.toString(),
             binding.editTextPassword.text.toString()
         )

@@ -125,7 +125,7 @@ class AuthViewModel : ViewModel() {
 
     }
 
-    fun onNextButtonClicked(typedPhoneNumber: String, typedTempPassword: String) {
+    fun onPhoneAndPasswordProvided(typedPhoneNumber: String, typedTempPassword: String) {
         phoneNumber = typedPhoneNumber.trim()
         phoneTemporalPassword = typedTempPassword
 
