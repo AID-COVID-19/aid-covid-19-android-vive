@@ -107,9 +107,15 @@ class AuthViewModel : ViewModel() {
     }
 
     fun confirmSignIn(newPass: String) {
+        if (isBusy)
+            return
+
+        isBusy = true
+
         AWSMobileClient.getInstance()
             .confirmSignIn(newPass, object : Callback<SignInResult?> {
                 override fun onResult(result: SignInResult?) {
+                    isBusy = false
                     Log.d(this.javaClass.canonicalName, "Sign-in callback state: " + result!!.signInState)
                     when (result.signInState) {
                         SignInState.DONE ->  newPassDone(true)
@@ -119,6 +125,7 @@ class AuthViewModel : ViewModel() {
                 }
 
                 override fun onError(e: Exception?) {
+                    isBusy = false
                     Log.e(this.javaClass.canonicalName, "Sign-in error", e)
                 }
             })
