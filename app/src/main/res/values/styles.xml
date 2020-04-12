@@ -48,6 +48,15 @@
         <item name="height">@dimen/activity_txt_high_title_1</item>
     </style>
 
+    <style name="TextAppearance.DarkBackground.SuperMedium" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="fontFamily">@font/avenir_black</item>
+        <item name="android:textColor">@color/colorFontForDarkBackground</item>
+        <item name="height">@dimen/activity_txt_high_title_1</item>
+    </style>
+
     <style name="TextAppearance.DarkBackground.Medium" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>

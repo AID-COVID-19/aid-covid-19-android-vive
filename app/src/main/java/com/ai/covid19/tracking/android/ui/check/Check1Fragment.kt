@@ -10,10 +10,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheck1Binding
 import com.amazonaws.amplify.generated.graphql.CreateCheckMutation
+import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
@@ -44,14 +44,19 @@ class Check1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listener: (View) -> Unit = {
+            enableControls(false)
+            binding.buttonNextCheck1.showLoading()
+            binding.buttonNextCheck1.isEnabled = false
             saveCheck1()
         }
         button_next_check_1.setOnClickListener(listener)
+        enableControls(true)
     }
 
     private fun howYouFeelSetup() {
         binding.howYouFeel.check(viewModelCheck.howYouFeelSelectedId)
         binding.howYouFeel.setOnCheckedChangeListener { _, checkedId ->
+            binding.buttonNextCheck1.isEnabled = true
             viewModelCheck.howYouFeelSelectedId = checkedId
             viewModelCheck.howYouFeel = when (checkedId) {
                 R.id.howYouFeel_better -> getString(R.string.howYouFeel_better)
@@ -60,6 +65,31 @@ class Check1Fragment : Fragment() {
                 else -> null
             }
         }
+    }
+
+    private fun enableControls(isEnable: Boolean) {
+        binding.howYouFeelBetter.isEnabled = isEnable
+        binding.howYouFeelNoBetter.isEnabled = isEnable
+        binding.howYouFeelWorse.isEnabled = isEnable
+        binding.generalDiscomfort.isEnabled = isEnable
+        binding.itchyOrSoreThroat.isEnabled = isEnable
+        binding.diarrhea.isEnabled = isEnable
+        binding.badTasteInTheMouth.isEnabled = isEnable
+        binding.lossOfTasteInFood.isEnabled = isEnable
+        binding.lossOfSmell.isEnabled = isEnable
+        binding.musclePains.isEnabled = isEnable
+        binding.chestOrBackPain.isEnabled = isEnable
+        binding.headache.isEnabled = isEnable
+        binding.wetCoughWithPhlegm.isEnabled = isEnable
+        binding.dryCough.isEnabled = isEnable
+        binding.chill.isEnabled = isEnable
+        binding.fever.isEnabled = isEnable
+        binding.fatigueWhenWalkingOrClimbingStairs.isEnabled = isEnable
+        binding.feelingShortOfBreathWithDailyActivities.isEnabled = isEnable
+        binding.respiratoryDistress.isEnabled = isEnable
+        binding.confusion.isEnabled = isEnable
+        binding.bluishLipsOrFace.isEnabled = isEnable
+        binding.otherSymptomsOrDiscomfort.isEnabled = isEnable
     }
 
     private fun botherSetup() {
@@ -163,6 +193,8 @@ class Check1Fragment : Fragment() {
         binding.bluishLipsOrFace.isChecked = viewModelCheck.bluishLipsOrFace
         if(!viewModelCheck.otherSymptomsOrDiscomfort.isNullOrBlank())
             binding.otherSymptomsOrDiscomfort.setText(viewModelCheck.otherSymptomsOrDiscomfort)
+        if(viewModelCheck.howYouFeel != null)
+            binding.buttonNextCheck1.isEnabled = true
     }
 
     private fun saveCheck1() {
@@ -198,12 +230,16 @@ class Check1Fragment : Fragment() {
     private val mutationCallback: GraphQLCall.Callback<CreateCheckMutation.Data?> =
         object : GraphQLCall.Callback<CreateCheckMutation.Data?>() {
             override fun onFailure(@Nonnull e: ApolloException) {
+                binding.buttonNextCheck1.hideLoading()
                 Log.e("Error", e.toString())
             }
             override fun onResponse(response: com.apollographql.apollo.api.Response<CreateCheckMutation.Data?>) {
-                findNavController().navigate(R.id.action_check1Fragment_to_check2Fragment)
-                Log.i(this.javaClass.canonicalName , "Check 1 was added to database.");
-            }
+                    ThreadUtils.runOnUiThread {
+                        binding.buttonNextCheck1.hideLoading()
+                        findNavController().navigate(R.id.action_check1Fragment_to_check2Fragment)
+                    }
+                    Log.i(this.javaClass.canonicalName, "Check 1 was added to database.");
+                }
         }
 
     private fun otherSymptomsOrDiscomfortSetup(){

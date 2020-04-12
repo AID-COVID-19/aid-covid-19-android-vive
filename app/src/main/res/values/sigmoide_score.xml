@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="score_howYouFeel_better">-1</string>
-    <string name="score_howYouFeel_no_better">0</string>
-    <string name="score_howYouFeel_worse">1</string>
+    <string name="score_howYouFeel_better">"-1"</string>
+    <string name="score_howYouFeel_no_better">"0"</string>
+    <string name="score_howYouFeel_worse">"1"</string>
 
-    <string name="score_generalDiscomfort">0.1</string>
-    <string name="score_itchyOrSoreThroat">0.1</string>
-    <string name="score_diarrhea">0.1</string>
-    <string name="score_badTasteInTheMouth">0.1</string>
-    <string name="score_lossOfTasteInFood">0.1</string>
-    <string name="score_lossOfSmell">0.1</string>
-    <string name="score_musclePains">0.1</string>
-    <string name="score_chestOrBackPain">0.1</string>
-    <string name="score_headache">0.1</string>
-    <string name="score_wetCoughWithPhlegm">0.1</string>
-    <string name="score_dryCough">0.1</string>
-    <string name="score_chill">0.2</string>
-    <string name="score_fever">0.2</string>
-    <string name="score_fatigueWhenWalkingOrClimbingStairs">0.5</string>
-    <string name="score_feelingShortOfBreathWithDailyActivities">0.5</string>
-    <string name="score_respiratoryDistress">1</string>
-    <string name="score_confusion">1</string>
-    <string name="score_bluishLipsOrFace">1</string>
+    <string name="score_generalDiscomfort">"0.1"</string>
+    <string name="score_itchyOrSoreThroat">"0.1"</string>
+    <string name="score_diarrhea">"0.1"</string>
+    <string name="score_badTasteInTheMouth">"0.1"</string>
+    <string name="score_lossOfTasteInFood">"0.1"</string>
+    <string name="score_lossOfSmell">"0.1"</string>
+    <string name="score_musclePains">"0.1"</string>
+    <string name="score_chestOrBackPain">"0.1"</string>
+    <string name="score_headache">"0.1"</string>
+    <string name="score_wetCoughWithPhlegm">"0.1"</string>
+    <string name="score_dryCough">"0.1"</string>
+    <string name="score_chill">"0.2"</string>
+    <string name="score_fever">"0.2"</string>
+    <string name="score_fatigueWhenWalkingOrClimbingStairs">"0.5"</string>
+    <string name="score_feelingShortOfBreathWithDailyActivities">"0.5"</string>
+    <string name="score_respiratoryDistress">"1"</string>
+    <string name="score_confusion">"1"</string>
+    <string name="score_bluishLipsOrFace">"1"</string>
 
-    <string name="score_temperature_range_1">1</string>
-    <string name="score_temperature_range_2">-1</string>
-    <string name="score_temperature_range_3">1</string>
-    <string name="score_temperature_range_4">2</string>
+    <string name="score_temperature_range_1">"1"</string>
+    <string name="score_temperature_range_2">"-1"</string>
+    <string name="score_temperature_range_3">"1"</string>
+    <string name="score_temperature_range_4">"2"</string>
 
-    <string name="score_breath_range_1">1</string>
-    <string name="score_breath_range_2">-1</string>
-    <string name="score_breath_range_3">1</string>
-    <string name="score_breath_range_4">2</string>
+    <string name="score_breath_range_1">"1"</string>
+    <string name="score_breath_range_2">"-1"</string>
+    <string name="score_breath_range_3">"1"</string>
+    <string name="score_breath_range_4">"2"</string>
 
-    <string name="score_hypotension">0.25</string>
-    <string name="score_normal">-1</string>
-    <string name="score_elevated">1</string>
-    <string name="score_stage_1_hypertension">2</string>
-    <string name="score_stage_2_hypertension">2</string>
-    <string name="score_hypertensive_crisis">3</string>
+    <string name="score_hypotension">"0.25"</string>
+    <string name="score_normal">"-1"</string>
+    <string name="score_elevated">"1"</string>
+    <string name="score_stage_1_hypertension">"2"</string>
+    <string name="score_stage_2_hypertension">"2"</string>
+    <string name="score_hypertensive_crisis">"3"</string>
 
-    <string name="score_areYouTakingYourMedications_yes">-1</string>
-    <string name="score_areYouTakingYourMedications_no">1</string>
-    <string name="score_areYouTakingYourMedications_I_finished">0</string>
+    <string name="score_areYouTakingYourMedications_yes">"-1"</string>
+    <string name="score_areYouTakingYourMedications_no">"1"</string>
+    <string name="score_areYouTakingYourMedications_I_finished">"0"</string>
 </resources>

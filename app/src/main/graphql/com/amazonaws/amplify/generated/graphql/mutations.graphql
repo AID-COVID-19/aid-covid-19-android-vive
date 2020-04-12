@@ -127,6 +127,7 @@ mutation CreateCheck($input: CreateCheckInput!) {
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
     RiskResult
+    RiskScore
   }
 }
 mutation UpdateCheck($input: UpdateCheckInput!) {
@@ -167,6 +168,7 @@ mutation UpdateCheck($input: UpdateCheckInput!) {
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
     RiskResult
+    RiskScore
   }
 }
 mutation DeleteCheck($input: DeleteCheckInput!) {
@@ -207,5 +209,6 @@ mutation DeleteCheck($input: DeleteCheckInput!) {
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
     RiskResult
+    RiskScore
   }
 }

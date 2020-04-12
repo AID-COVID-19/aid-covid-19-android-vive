@@ -10,69 +10,79 @@ android:background="@color/colorBackgroundLight"
 android:padding="@dimen/fragment_padding_extended"
 tools:context=".PatientCheckActivity">
 
-<ImageView
-    android:id="@+id/imageView"
-    android:layout_width="171dp"
-    android:layout_height="151dp"
-    android:layout_marginTop="72dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/ic_alarm_black_48dp" />
 
-<TextClock
-    android:id="@+id/textView4"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/activity_txt_margin_title_1"
-    android:text="@string/hour_alarm_content"
-    android:textAppearance="@style/TextAppearance.Large"
-    android:textSize="48sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <TextView
+        android:id="@+id/textViewClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/hour_alarm_content"
+        android:textAppearance="@style/TextAppearance.Large"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/textView7"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="32dp"
-    android:text="@string/privacy_notice_title"
-    android:textAppearance="@style/TextAppearance.BlueSmall"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_txt_margin_section"
+        android:text="@string/alarm_patient_name"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/textContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-<TextView
-    android:id="@+id/textView18"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/activity_txt_high_title_2"
-    android:text="@string/alarm_notice"
-    app:layout_constraintBottom_toTopOf="@+id/button_start"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/textContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_txt_margin_section"
+        android:text="@string/alarm_notice"
+        app:layout_constraintBottom_toTopOf="@+id/button_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
 
-<TextView
-    android:id="@+id/textView19"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/activity_txt_high_title_2"
-    android:text="@string/alarm_patient_name"
-    android:textAppearance="@style/TextAppearance.Medium"
-    app:layout_constraintBottom_toTopOf="@+id/textView18"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    <com.kusu.loadingbutton.LoadingButton
+        android:id="@+id/button_start"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/activity_txt_margin_section"
+        android:layout_marginBottom="@dimen/activity_txt_margin_section"
+        android:elevation="@dimen/button_elevation"
+        android:onClick="startPatientCheck"
+        android:text="@string/button_start"
+        android:textAllCaps="false"
+        android:textColor="@color/colorFontForDarkBackground"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPrivacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textContent"
+        app:lb_buttonColor="@color/colorPrimary"
+        app:lb_isCircular="false"
+        app:lb_isShadowEnable="true"
+        app:lb_shadowColor="@color/colorRipple"
+        app:lb_shadowHeight="2dp" />
 
-<Button
-    android:id="@+id/button_start"
-    android:onClick="startPatientCheck"
-    android:layout_width="match_parent"
-    android:layout_marginBottom="24dp"
-    android:text="@string/button_start"
-    style="@style/TextAppearance.BlueButtonSmall"
-    app:layout_constraintBottom_toTopOf="@+id/textView7"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/txtPrivacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_txt_margin_section"
+        android:layout_marginBottom="@dimen/activity_txt_margin_section"
+        android:height="@dimen/button_height"
+        android:gravity="center_vertical"
+        android:text="@string/privacy_notice_title"
+        android:textAppearance="@style/TextAppearance.BlueSmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_start" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
