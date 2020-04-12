@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ai.covid19.tracking.android.R
+import com.ai.covid19.tracking.android.util.hasValidPasswordFormat
 import com.amazonaws.AmazonClientException
 import com.amazonaws.AmazonServiceException
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
@@ -144,10 +145,16 @@ class AuthViewModel : ViewModel() {
     }
 
     fun onNewPasswordProvided(typedNewPassword: String) {
-        if (typedNewPassword.isEmpty()) {
-            setLastErrorStringRes(R.string.auth_no_password_provided)
-        } else {
-            confirmSignIn(typedNewPassword)
+        when {
+            typedNewPassword.isEmpty() -> {
+                setLastErrorStringRes(R.string.auth_no_password_provided)
+            }
+            !typedNewPassword.hasValidPasswordFormat() -> {
+                setLastErrorStringRes(R.string.auth_password_has_wrong_format)
+            }
+            else -> {
+                confirmSignIn(typedNewPassword)
+            }
         }
     }
 }
