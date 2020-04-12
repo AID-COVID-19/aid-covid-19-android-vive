@@ -16,4 +16,6 @@
     <color name="colorBackgroundGreenAlert">#74B628</color>
     <color name="colorBackgroundOrangeAlert">#CA7100</color>
     <color name="colorBackgroundRedAlert">#BC0025</color>
+
+    <color name="colorSecondaryPrimaryDark">#292929</color>
 </resources>

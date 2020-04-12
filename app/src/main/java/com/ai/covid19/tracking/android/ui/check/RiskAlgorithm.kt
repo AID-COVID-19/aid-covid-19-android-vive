@@ -7,9 +7,9 @@ import com.soywiz.klock.until
 
 class RiskAlgorithm(
     private val context: Context,
-    private val temperature_range: String,
+    private val temperature_range: String?,
     private val headache: Boolean = false,
-    private val breath_range: String,
+    private val breath_range: String?,
     private val last12hPainChestMeasures: Map<Long, Boolean?>,
     private val bluishLipsOrFace: Boolean = false,
     private val newConfusionOrInabilityToArouse: Boolean = false

@@ -38,6 +38,10 @@ android {
 
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -70,4 +74,7 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.10'
     implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.10'
     implementation 'com.hbb20:ccp:2.2.2'
+
+    //loading button
+    implementation "com.github.koushikcse:LoadingButton:1.5"
 }

@@ -22,15 +22,12 @@ import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.hours
-import kotlinx.coroutines.coroutineScope
 import type.TableCheckFilterInput
 import type.TableIntFilterInput
 import type.UpdateCheckInput
-import java.lang.Math.round
 import java.math.BigDecimal
 import java.math.RoundingMode
 import javax.annotation.Nonnull
-import kotlin.math.roundToLong
 
 class CheckResultFragment : Fragment() {
 
@@ -51,6 +48,8 @@ class CheckResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         runEvaluation()
         val listenerEnd: (View) -> Unit = {
+            binding.buttonEnd.isEnabled = false
+            binding.buttonEnd.showLoading()
             saveResult(viewModelCheck.riskResult)
             activity?.finish()
         }

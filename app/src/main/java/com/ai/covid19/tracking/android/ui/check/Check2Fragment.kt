@@ -19,6 +19,7 @@ import com.ai.covid19.tracking.android.databinding.FragmentCheck2Binding
 import com.amazonaws.Response
 import com.amazonaws.amplify.generated.graphql.ListChecksQuery
 import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
+import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
@@ -50,9 +51,13 @@ class Check2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listener: (View) -> Unit = {
+            enableControls(false)
+            binding.buttonNextCheck2.showLoading()
             saveCheck2()
         }
         binding.buttonNextCheck2.setOnClickListener(listener)
+        if(viewModelCheck.breathsPerMinuteRange != null)
+            binding.buttonNextCheck2.isEnabled = true
     }
 
     private fun temperatureRangeSetup() {
@@ -72,6 +77,7 @@ class Check2Fragment : Fragment() {
     private fun breathRangeSetup() {
         binding.breath.check(viewModelCheck.breathRangeSelectedId)
         binding.breath.setOnCheckedChangeListener { _, checkedId ->
+            binding.buttonNextCheck2.isEnabled = true
             viewModelCheck.breathRangeSelectedId = checkedId
             viewModelCheck.breathsPerMinuteRange = when (checkedId) {
                 R.id.breath_range_1 -> getString(R.string.breath_range_1)
@@ -122,16 +128,34 @@ class Check2Fragment : Fragment() {
             ?.enqueue(mutationCallback)
     }
 
+    private fun enableControls(isEnable: Boolean) {
+        binding.buttonNextCheck2.isEnabled = isEnable
+        binding.breathRange1.isEnabled = isEnable
+        binding.breathRange2.isEnabled = isEnable
+        binding.breathRange3.isEnabled = isEnable
+        binding.breathRange4.isEnabled = isEnable
+        binding.temperatureRange1.isEnabled = isEnable
+        binding.temperatureRange2.isEnabled = isEnable
+        binding.temperatureRange3.isEnabled = isEnable
+        binding.temperatureRange4.isEnabled = isEnable
+        binding.bloodPressureMin.isEnabled = isEnable
+        binding.bloodPressureMax.isEnabled = isEnable
+    }
+
     private val mutationCallback: GraphQLCall.Callback<UpdateCheckMutation.Data?> =
         object : GraphQLCall.Callback<UpdateCheckMutation.Data?>() {
             override fun onFailure(@Nonnull e: ApolloException) {
                 Log.e("Error", e.toString())
             }
             override fun onResponse(response: com.apollographql.apollo.api.Response<UpdateCheckMutation.Data?>) {
-                val direction = Check2FragmentDirections.actionCheck2FragmentToCheckResultFragment()
-                navigate(direction)
-                Log.i(this.javaClass.canonicalName , "Check 2 was added to database.");
-            }
+                    ThreadUtils.runOnUiThread {
+                        val direction =
+                            Check2FragmentDirections.actionCheck2FragmentToCheckResultFragment()
+                        binding.buttonNextCheck2.hideLoading()
+                        navigate(direction)
+                    }
+                    Log.i(this.javaClass.canonicalName, "Check 2 was added to database.");
+                }
         }
 
     private fun navigate(destination: NavDirections) = with(findNavController()) {

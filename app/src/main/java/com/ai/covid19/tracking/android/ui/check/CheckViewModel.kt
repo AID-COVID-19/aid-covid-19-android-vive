@@ -40,8 +40,8 @@ class CheckViewModel : ViewModel() {
     var bluishLipsOrFace: Boolean = false
     var otherSymptomsOrDiscomfort: String? = null
 
-    lateinit var temperatureRange: String
-    lateinit var breathsPerMinuteRange: String
+    var temperatureRange: String? = null
+    var breathsPerMinuteRange: String? = null
     var bloodPressureLowValue: Int? = null
     var bloodPressureHighValue: Int? = null
     var haveYouBeenNervousOrAnxious: String? = null
