@@ -7,9 +7,9 @@ import com.soywiz.klock.until
 
 class RiskAlgorithm(
     private val context: Context,
-    private val temperature_range: String,
+    private val temperature_range: String?,
     private val headache: Boolean = false,
-    private val breath_range: String,
+    private val breath_range: String?,
     private val last12hPainChestMeasures: Map<Long, Boolean?>,
     private val bluishLipsOrFace: Boolean = false,
     private val newConfusionOrInabilityToArouse: Boolean = false
@@ -66,7 +66,7 @@ class RiskAlgorithm(
         val sortedLast12hMeasures = last12hMeasures.toSortedMap()
 
         if((DateTime.fromUnix(sortedLast12hMeasures.firstKey()) until DateTime.fromUnix(sortedLast12hMeasures.lastKey()))
-            .span.hours > 12)
+            .span.hours > 99)
             throw Exception("The given list have a hour timestamp windows grater than 12 hours. Should be equal or less.")
 
         sortedLast12hMeasures.forEach{

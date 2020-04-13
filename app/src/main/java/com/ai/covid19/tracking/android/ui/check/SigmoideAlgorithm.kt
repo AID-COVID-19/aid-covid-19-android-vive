@@ -4,23 +4,23 @@ import kotlin.math.exp
 
 class SigmoideAlgorithm(){
 
-    fun calculateFromStringValues(values: List<String>) : Float{
-        var score = 0.0f
+    fun calculateFromStringValues(values: List<String>) : Double {
+        var score = 0.0
         for(  value in values ){
-            score += value.toFloat()
+            score += value.toDouble()
         }
         return calculate(score)
     }
 
-    fun calculate(values: List<Float>) : Float{
-        var score = 0.0f
+    fun calculate(values: List<Double>) : Double {
+        var score = 0.0
         for(  value in values ){
             score += value
         }
         return calculate(score)
     }
 
-    fun calculate(score: Float) : Float {
+    fun calculate(score: Double) : Double {
         return 1/(1+ exp(-score))
     }
 }

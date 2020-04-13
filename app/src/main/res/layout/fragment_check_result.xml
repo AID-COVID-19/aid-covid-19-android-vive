@@ -6,33 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/fragment_margin"
-    android:background="@color/colorBackgroundGreenAlert"
+    android:background="@color/colorBackgroundLight"
     android:padding="@dimen/fragment_padding_extended"
     tools:context=".PatientCheckActivity">
 
-    <TextView
-        android:id="@+id/textViewRiskTitle"
+    <LinearLayout
+        android:id="@+id/topSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/check_result_low_title"
-        android:textAppearance="@style/TextAppearance.DarkBackground.SuperLarge"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/txtNotice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/textViewRiskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check_result_low_title"
+            android:textAppearance="@style/TextAppearance.DarkBackground.SuperLarge" />
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/textViewRiskScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check_result_score"
+            android:textAppearance="@style/TextAppearance.DarkBackground.SuperMedium" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/txtDisc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/check_result_disc"
-        android:textAppearance="@style/TextAppearance.DarkBackground.Small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
+        android:visibility="invisible"
         android:id="@+id/txtNotice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,18 +44,57 @@
         android:text="@string/check_result_low_notice"
         android:textAppearance="@style/TextAppearance.DarkBackground.Small"
         app:layout_constraintBottom_toTopOf="@+id/button_end"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+
+    <com.kusu.loadingbutton.LoadingButton
+        android:visibility="invisible"
+        android:id="@+id/button_end"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="@dimen/activity_txt_margin_section"
+        android:elevation="@dimen/button_elevation"
+        android:onClick="startPatientCheck"
+        android:text="@string/button_end"
+        android:textAllCaps="false"
+        android:textColor="@color/colorFontForDarkBackground"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtDisc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNotice"
+        app:lb_buttonColor="@color/colorPrimaryDark"
+        app:lb_isCircular="false"
+        app:lb_isShadowEnable="true"
+        app:lb_shadowColor="@color/colorSecondaryPrimaryDark"
+        app:lb_shadowHeight="2dp" />
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/txtDisc"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/activity_txt_margin_section"
+        android:layout_marginBottom="@dimen/activity_txt_margin_section"
+        android:height="@dimen/button_height"
+        android:text="@string/check_result_disc"
+        android:textAppearance="@style/TextAppearance.DarkBackground.Small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button_end"
-        android:onClick="startPatientCheck"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="24dp"
-        android:text="@string/button_end"
-        style="@style/TextAppearance.BlackButtonSmall"
-        app:layout_constraintBottom_toTopOf="@+id/txtDisc"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

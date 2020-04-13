@@ -1,6 +1,7 @@
 package com.ai.covid19.tracking.android.ui.check
 
 import android.os.Bundle
+import android.util.ArrayMap
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,20 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheckResultBinding
+import com.amazonaws.amplify.generated.graphql.ListChecksQuery
 import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
+import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
+import com.soywiz.klock.DateTime
+import com.soywiz.klock.hours
+import type.TableCheckFilterInput
+import type.TableIntFilterInput
 import type.UpdateCheckInput
+import java.math.BigDecimal
+import java.math.RoundingMode
 import javax.annotation.Nonnull
 
 class CheckResultFragment : Fragment() {
@@ -30,13 +40,16 @@ class CheckResultFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCheckResultBinding.inflate(inflater, container, false)
-        setViewAccordingToResult()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        runEvaluation()
         val listenerEnd: (View) -> Unit = {
+            binding.buttonEnd.isEnabled = false
+            binding.buttonEnd.showLoading()
             saveResult(viewModelCheck.riskResult)
             activity?.finish()
         }
@@ -60,6 +73,23 @@ class CheckResultFragment : Fragment() {
             RiskAlgorithm.RiskClassification.MODERATE -> settingModerateResult()
             RiskAlgorithm.RiskClassification.HIGH -> settingHighResult()
         }
+        settingScore()
+        Thread.sleep(1_000)
+        settinAllVisible()
+    }
+
+    private fun settingScore() {
+        val roundScore = BigDecimal(viewModelCheck.riskScore.toDouble()).setScale(6, RoundingMode.HALF_EVEN)
+        binding.textViewRiskScore.text = roundScore.toString()
+    }
+
+    private fun settinAllVisible() {
+        binding.textViewRiskScore.visibility = View.VISIBLE
+        binding.textViewRiskTitle.visibility = View.VISIBLE
+        binding.txtNotice.visibility = View.VISIBLE
+        binding.txtDisc.visibility = View.VISIBLE
+        binding.buttonEnd.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
     }
 
     private fun settingLowResult() {
@@ -87,6 +117,7 @@ class CheckResultFragment : Fragment() {
         val updateCheckInput = UpdateCheckInput.builder()
             .identityId(AWSMobileClient.getInstance().identityId)
             .riskResult(result.toString())
+            .riskScore(viewModelCheck.riskScore.toDouble())
             .build()
         viewModelCheck.mAWSAppSyncClient?.mutate(UpdateCheckMutation.builder().input(updateCheckInput).build())
             ?.enqueue(mutationCallback)
@@ -101,4 +132,97 @@ class CheckResultFragment : Fragment() {
                 Log.i(this.javaClass.canonicalName , "Risk result was added to database.");
             }
         }
+
+    private fun runEvaluation(last12hMeasures: Map<Long, Boolean?>) {
+        val riskAlgorithm = RiskAlgorithm(context = requireContext(),
+            breath_range = viewModelCheck.breathsPerMinuteRange,
+            last12hPainChestMeasures = last12hMeasures,
+            headache = viewModelCheck.headache,
+            temperature_range = viewModelCheck.temperatureRange,
+            newConfusionOrInabilityToArouse = viewModelCheck.newConfusionOrInabilityToArouse,
+            bluishLipsOrFace = viewModelCheck.bluishLipsOrFace
+        )
+        viewModelCheck.riskResult = riskAlgorithm.calculateRisk()
+        viewModelCheck.riskScore = calculateScore()
+        setViewAccordingToResult()
+    }
+
+    private fun runEvaluation() {
+        val dateTime12HrAgo = DateTime.now() - 12.hours
+        val filter = TableCheckFilterInput.builder().checkTimestamp(
+            TableIntFilterInput.builder().gt(dateTime12HrAgo.unixMillis.toInt()).build()
+        ).build()
+        viewModelCheck.mAWSAppSyncClient?.query(ListChecksQuery.builder().filter(filter).build())
+            ?.responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+            ?.enqueue(callbackList)
+    }
+
+    private val callbackList: GraphQLCall.Callback<ListChecksQuery.Data?> =
+        object : GraphQLCall.Callback<ListChecksQuery.Data?>() {
+
+            override fun onFailure(@Nonnull e: ApolloException) {
+                Log.e("ERROR", e.toString())
+            }
+
+            override fun onResponse(response: com.apollographql.apollo.api.Response<ListChecksQuery.Data?>) {
+                if( response.data() != null) {
+                    Log.i("Results", response.data()?.listChecks()?.items().toString())
+                    runOnUiThread {
+                        val last12hMeasures: MutableMap<Long, Boolean?> = ArrayMap()
+                        response.data()?.listChecks()?.items()?.forEach {
+                            last12hMeasures[it.checkTimestamp()] = it.chestOrBackPain()
+                        }
+                        runEvaluation(last12hMeasures)
+                    }
+                }
+            }
+        }
+
+    private fun calculateScore(): Double {
+        val sigmoideAlgorithm = SigmoideAlgorithm()
+        val score = Score()
+
+        val scoreList: MutableList<Double> = ArrayList()
+
+        when(viewModelCheck.howYouFeel) {
+            getString(R.string.howYouFeel_better) -> scoreList.add(score.howYouFeel_better)
+            getString(R.string.howYouFeel_no_better) -> scoreList.add(score.howYouFeel_no_better)
+            getString(R.string.howYouFeel_worse) -> scoreList.add(score.howYouFeel_worse)
+        }
+
+        if ( viewModelCheck.generalDiscomfort ) scoreList.add(score.generalDiscomfort)
+        if ( viewModelCheck.itchyOrSoreThroat ) scoreList.add(score.itchyOrSoreThroat)
+        if ( viewModelCheck.diarrhea ) scoreList.add(score.diarrhea)
+        if ( viewModelCheck.badTasteInTheMouth ) scoreList.add(score.badTasteInTheMouth)
+        if ( viewModelCheck.lossOfTasteInFood ) scoreList.add(score.lossOfTasteInFood)
+        if ( viewModelCheck.lossOfSmell ) scoreList.add(score.lossOfSmell)
+        if ( viewModelCheck.musclePains ) scoreList.add(score.musclePains)
+        if ( viewModelCheck.chestOrBackPain ) scoreList.add(score.chestOrBackPain)
+        if ( viewModelCheck.headache ) scoreList.add(score.headache)
+        if ( viewModelCheck.wetCoughWithPhlegm ) scoreList.add(score.wetCoughWithPhlegm)
+        if ( viewModelCheck.dryCough ) scoreList.add(score.dryCough)
+        if ( viewModelCheck.chill ) scoreList.add(score.chill)
+        if ( viewModelCheck.fever ) scoreList.add(score.fever)
+        if ( viewModelCheck.fatigueWhenWalkingOrClimbingStairs ) scoreList.add(score.fatigueWhenWalkingOrClimbingStairs)
+        if ( viewModelCheck.feelingShortOfBreathWithDailyActivities ) scoreList.add(score.feelingShortOfBreathWithDailyActivities)
+        if ( viewModelCheck.respiratoryDistress ) scoreList.add(score.respiratoryDistress)
+        if ( viewModelCheck.newConfusionOrInabilityToArouse ) scoreList.add(score.newConfusionOrInabilityToArouse)
+        if ( viewModelCheck.bluishLipsOrFace ) scoreList.add(score.bluishLipsOrFace)
+
+        when(viewModelCheck.temperatureRange) {
+            getString(R.string.temperature_range_1) -> scoreList.add(score.temperature_range_1)
+            getString(R.string.temperature_range_2) -> scoreList.add(score.temperature_range_2)
+            getString(R.string.temperature_range_3) -> scoreList.add(score.temperature_range_3)
+            getString(R.string.temperature_range_4) -> scoreList.add(score.temperature_range_4)
+        }
+
+        when(viewModelCheck.breathsPerMinuteRange) {
+            getString(R.string.breath_range_1) -> scoreList.add(score.breath_range_1)
+            getString(R.string.breath_range_2) -> scoreList.add(score.breath_range_2)
+            getString(R.string.breath_range_3) -> scoreList.add(score.breath_range_3)
+            getString(R.string.breath_range_4) -> scoreList.add(score.breath_range_4)
+        }
+
+        return sigmoideAlgorithm.calculate(scoreList)
+    }
 }

@@ -211,6 +211,7 @@ subscription OnCreateCheck(
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
     RiskResult
+    RiskScore
   }
 }
 subscription OnUpdateCheck(
@@ -263,6 +264,7 @@ subscription OnUpdateCheck(
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
     RiskResult
+    RiskScore
   }
 }
 subscription OnDeleteCheck(
@@ -315,5 +317,6 @@ subscription OnDeleteCheck(
     HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
     AreYouTakingYourMedications
     RiskResult
+    RiskScore
   }
 }

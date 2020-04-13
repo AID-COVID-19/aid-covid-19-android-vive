@@ -265,15 +265,23 @@
                     tools:layout_editor_absoluteY="747dp" />
             </TableRow>
         </TableLayout>
-        <Button
+        <com.kusu.loadingbutton.LoadingButton
             android:id="@+id/button_next_check_1"
-            style="@style/TextAppearance.BlueButtonSmall"
+            android:enabled="false"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/activity_txt_margin_section"
             android:layout_marginBottom="@dimen/activity_txt_margin_section"
             android:text="@string/next_title"
-            android:textAppearance="@style/TextAppearance.Medium"
+            android:textColor="@color/colorFontForDarkBackground"
+            android:textAllCaps="false"
+            android:elevation="@dimen/button_elevation"
+            android:textSize="16sp"
+            app:lb_buttonColor="@color/colorPrimary"
+            app:lb_isShadowEnable="true"
+            app:lb_isCircular="false"
+            app:lb_shadowColor="@color/colorRipple"
+            app:lb_shadowHeight="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

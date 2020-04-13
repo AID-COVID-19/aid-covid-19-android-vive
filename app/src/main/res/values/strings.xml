@@ -24,18 +24,17 @@
     <string name="treatment_content_2">"Dosis: 400 mg cada 12 horas el primer día y después 200 mg cada 12 horas"</string>
     <string name="treatment_content_3">Periodo del tratamiento: 27 de marzo al 3 de abril, 7 días</string>
     <string name="hour_alarm_content">2:00 P.M.</string>
-    <string name="alarm_patient_name">¡Hola Rosa!</string>
-    <string name="alarm_notice">es momento de hacer su chequeo virtual,  es importante que conteste con honestidad, para prestarle la ayuda necesaria. La información recolectada es totalmente confidencial.</string>
+    <string name="alarm_patient_name">¡Hola!</string>
+    <string name="alarm_notice">es momento de hacer su chequeo virtual,  es importante que conteste con honestidad para prestarle la ayuda necesaria. La información recolectada es totalmente confidencial.</string>
     <string name="button_start">Empezar</string>
     <string name="button_end">Finalizar</string>
     <string name="privacy_notice_title">Aviso de Privacidad</string>
     <string name="yes">Si</string>
     <string name="not">No</string>
-    <string name="check_question_1">¿Cómo se siente?</string>
     <string name="check_1_q_1_a_1">mejor</string>
     <string name="check_1_q_1_a_2">igual, no he mejorado</string>
     <string name="check_1_q_1_a_3">peor</string>
-    <string name="check_1_q_1">¿Cómo se siente?</string>
+    <string name="check_1_q_1">*¿Cómo se siente?</string>
     <string name="check_1_q_2">¿Cuáles son sus molestias?</string>
     <string name="check_1_q_2_a_1">malestar general</string>
     <string name="check_1_q_2_a_2">picazón o dolor de garganta</string>
@@ -63,7 +62,7 @@
     <string name="check_2_q_1_a_2">entre 37.5º y 37.9º</string>
     <string name="check_2_q_1_a_3">entre 38º y 39º</string>
     <string name="check_2_q_1_a_4">mayor a 39º</string>
-    <string name="check_2_q_2">¿Cuántas respiraciones por minuto, tiene en este momento</string>
+    <string name="check_2_q_2">"*¿Cuántas respiraciones por minuto, tiene en este momento"</string>
     <string name="check_2_q_2_a_1">menor a 14</string>
     <string name="check_2_q_2_a_2">entre 14 y 20</string>
     <string name="check_2_q_2_a_3">entre 21 y 28</string>
@@ -106,10 +105,12 @@
     <string name="text_title_new_pass">Digite su nueva contraseña</string>
     <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>
     <string name="check_result_low_title">BAJO RIESGO</string>
+    <string name="check_result_score">0.999999</string>
     <string name="check_result_moderated_title">MODERADO RIESGO</string>
     <string name="check_result_high_title">ALTO RIESGO</string>
     <string name="check_result_low_notice">Según las respuestas dadas, usted está en bajo riesgo. Siga las instrucciones dadas por su médico. Si cree que tiene una emergencia llame inmediatamente al 911.</string>
     <string name="check_result_moderated_notice">Según las respuestas dadas, usted está en moderado riesgo. Será puesto en cola para atención prioritaria, un médico le llamará en el transcurso de unos minutos. Si cree que tiene una emergencia llame inmediatamente al 911.</string>
     <string name="check_result_high_notice">Usted está en algo riesgo, llame inmediatamente a su médico o al 911.</string>
     <string name="check_result_disc">Editar y volver a evaluar</string>
+    <string name="timer">Reloj</string>
 </resources>

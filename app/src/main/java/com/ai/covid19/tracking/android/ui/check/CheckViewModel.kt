@@ -9,6 +9,7 @@ import kotlin.properties.Delegates
 class CheckViewModel : ViewModel() {
 
     lateinit var riskResult: RiskAlgorithm.RiskClassification
+    var riskScore: Double = 0.0
 
     internal var mAWSAppSyncClient: AWSAppSyncClient? = null
     var timeStampLongId by Delegates.notNull<Long>()
@@ -39,8 +40,8 @@ class CheckViewModel : ViewModel() {
     var bluishLipsOrFace: Boolean = false
     var otherSymptomsOrDiscomfort: String? = null
 
-    lateinit var temperatureRange: String
-    lateinit var breathsPerMinuteRange: String
+    var temperatureRange: String? = null
+    var breathsPerMinuteRange: String? = null
     var bloodPressureLowValue: Int? = null
     var bloodPressureHighValue: Int? = null
     var haveYouBeenNervousOrAnxious: String? = null

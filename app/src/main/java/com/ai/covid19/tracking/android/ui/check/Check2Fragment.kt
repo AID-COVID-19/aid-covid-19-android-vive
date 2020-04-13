@@ -19,6 +19,7 @@ import com.ai.covid19.tracking.android.databinding.FragmentCheck2Binding
 import com.amazonaws.Response
 import com.amazonaws.amplify.generated.graphql.ListChecksQuery
 import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
+import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
@@ -50,9 +51,13 @@ class Check2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listener: (View) -> Unit = {
+            enableControls(false)
+            binding.buttonNextCheck2.showLoading()
             saveCheck2()
         }
         binding.buttonNextCheck2.setOnClickListener(listener)
+        if(viewModelCheck.breathsPerMinuteRange != null)
+            binding.buttonNextCheck2.isEnabled = true
     }
 
     private fun temperatureRangeSetup() {
@@ -72,6 +77,7 @@ class Check2Fragment : Fragment() {
     private fun breathRangeSetup() {
         binding.breath.check(viewModelCheck.breathRangeSelectedId)
         binding.breath.setOnCheckedChangeListener { _, checkedId ->
+            binding.buttonNextCheck2.isEnabled = true
             viewModelCheck.breathRangeSelectedId = checkedId
             viewModelCheck.breathsPerMinuteRange = when (checkedId) {
                 R.id.breath_range_1 -> getString(R.string.breath_range_1)
@@ -122,62 +128,38 @@ class Check2Fragment : Fragment() {
             ?.enqueue(mutationCallback)
     }
 
+    private fun enableControls(isEnable: Boolean) {
+        binding.buttonNextCheck2.isEnabled = isEnable
+        binding.breathRange1.isEnabled = isEnable
+        binding.breathRange2.isEnabled = isEnable
+        binding.breathRange3.isEnabled = isEnable
+        binding.breathRange4.isEnabled = isEnable
+        binding.temperatureRange1.isEnabled = isEnable
+        binding.temperatureRange2.isEnabled = isEnable
+        binding.temperatureRange3.isEnabled = isEnable
+        binding.temperatureRange4.isEnabled = isEnable
+        binding.bloodPressureMin.isEnabled = isEnable
+        binding.bloodPressureMax.isEnabled = isEnable
+    }
+
     private val mutationCallback: GraphQLCall.Callback<UpdateCheckMutation.Data?> =
         object : GraphQLCall.Callback<UpdateCheckMutation.Data?>() {
             override fun onFailure(@Nonnull e: ApolloException) {
                 Log.e("Error", e.toString())
             }
             override fun onResponse(response: com.apollographql.apollo.api.Response<UpdateCheckMutation.Data?>) {
-                queryLast12hrChestPain()
-                Log.i(this.javaClass.canonicalName , "Check 2 was added to database.");
-            }
+                    ThreadUtils.runOnUiThread {
+                        val direction =
+                            Check2FragmentDirections.actionCheck2FragmentToCheckResultFragment()
+                        binding.buttonNextCheck2.hideLoading()
+                        navigate(direction)
+                    }
+                    Log.i(this.javaClass.canonicalName, "Check 2 was added to database.");
+                }
         }
-
-    private fun runEvaluation(last12hMeasures: Map<Long, Boolean?>) {
-        val riskAlgorithm = RiskAlgorithm(context = requireContext(),
-            breath_range = viewModelCheck.breathsPerMinuteRange,
-            last12hPainChestMeasures = last12hMeasures,
-            headache = viewModelCheck.headache,
-            temperature_range = viewModelCheck.temperatureRange,
-            newConfusionOrInabilityToArouse = viewModelCheck.newConfusionOrInabilityToArouse,
-            bluishLipsOrFace = viewModelCheck.bluishLipsOrFace
-        )
-        viewModelCheck.riskResult = riskAlgorithm.calculateRisk()
-        val direction = Check2FragmentDirections.actionCheck2FragmentToCheckResultFragment()
-        navigate(direction)
-    }
 
     private fun navigate(destination: NavDirections) = with(findNavController()) {
         currentDestination?.getAction(destination.actionId)
             ?.let { navigate(destination) }
     }
-
-    private fun queryLast12hrChestPain() {
-        val dateTime12HrAgo = DateTime.now() - 12.hours
-        val filter = TableCheckFilterInput.builder().checkTimestamp(
-            TableIntFilterInput.builder().ge(dateTime12HrAgo.unixMillis.toInt()).build()
-        ).build()
-        viewModelCheck.mAWSAppSyncClient?.query(ListChecksQuery.builder().filter(filter).build())
-            ?.responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
-            ?.enqueue(callbackList)
-    }
-
-    private val callbackList: GraphQLCall.Callback<ListChecksQuery.Data?> =
-        object : GraphQLCall.Callback<ListChecksQuery.Data?>() {
-
-            override fun onFailure(@Nonnull e: ApolloException) {
-                Log.e("ERROR", e.toString())
-            }
-
-            override fun onResponse(response: com.apollographql.apollo.api.Response<ListChecksQuery.Data?>) {
-                if( response.data() != null) {
-                    Log.i("Results", response.data()?.listChecks()?.items().toString())
-                    val last12hMeasures: MutableMap<Long, Boolean?> = ArrayMap()
-                    response.data()?.listChecks()?.items()?.forEach {
-                        last12hMeasures[it.checkTimestamp()] = it.chestOrBackPain()
-                    }
-                    runEvaluation(last12hMeasures)
-                }
-            }
-        }
 }
