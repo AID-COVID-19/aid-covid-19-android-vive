@@ -101,7 +101,7 @@
     <string name="auth_password_has_wrong_format">La contraseña tiene el formato incorrecto</string>
     <string name="auth_user_not_found">Usuario no encontrado. Compruebe el número celular.</string>
     <string name="auth_client_exception">Compruebe su conexión a Internet e intente nuevamente.</string>
-    <string name="auth_service_exception">Ha ocurrido un error, por favor intente nuevamente.</string>
+    <string name="auth_service_generic_exception">Ha ocurrido un error, por favor intente nuevamente.</string>
     <string name="temporal_password_hint">Digite su contraseña</string>
     <string name="text_title_new_pass">Digite su nueva contraseña</string>
     <string name="new_password_hint">debe contener mínimo una mayúscula, una minúscula, un número, y ser de mínimo 8 caracteres.</string>

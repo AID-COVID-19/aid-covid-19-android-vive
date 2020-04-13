@@ -87,7 +87,7 @@ class AuthViewModel : ViewModel() {
                                     this.javaClass.canonicalName,
                                     "Unsupported sign-in confirmation: " + signInResult.signInState
                                 )
-                                setLastErrorStringRes(R.string.auth_service_exception)
+                                setLastErrorStringRes(R.string.auth_service_generic_exception)
                             }
                         }
                     })
@@ -96,13 +96,7 @@ class AuthViewModel : ViewModel() {
                 override fun onError(e: Exception) {
                     isBusy = false
                     Log.e(this.javaClass.canonicalName, "Sign-in error", e)
-
-                    when (e) {
-                        is NotAuthorizedException -> setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
-                        is UserNotFoundException -> setLastErrorStringRes(R.string.auth_user_not_found)
-                        is AmazonClientException -> setLastErrorStringRes(R.string.auth_client_exception)
-                        is AmazonServiceException -> setLastErrorStringRes(R.string.auth_service_exception)
-                    }
+                    notifyRequestException(e)
                 }
             })
     }
@@ -121,13 +115,20 @@ class AuthViewModel : ViewModel() {
                     when (result.signInState) {
                         SignInState.DONE ->  newPassDone(true)
                         SignInState.SMS_MFA ->  Log.d(this.javaClass.canonicalName, "Please confirm sign-in with SMS.")
-                        else ->  Log.d(this.javaClass.canonicalName, "Unsupported sign-in confirmation: " + result.signInState)
+                        else -> {
+                            Log.d(
+                                this.javaClass.canonicalName,
+                                "Unsupported sign-in confirmation: " + result.signInState
+                            )
+                            setLastErrorStringRes(R.string.auth_service_generic_exception)
+                        }
                     }
                 }
 
-                override fun onError(e: Exception?) {
+                override fun onError(e: Exception) {
                     isBusy = false
-                    Log.e(this.javaClass.canonicalName, "Sign-in error", e)
+                    Log.e(this.javaClass.canonicalName, "Confirm sign-in error", e)
+                    notifyRequestException(e)
                 }
             })
 
@@ -155,6 +156,16 @@ class AuthViewModel : ViewModel() {
             else -> {
                 confirmSignIn(typedNewPassword)
             }
+        }
+    }
+
+    private fun notifyRequestException(e: Exception) {
+        when (e) {
+            is NotAuthorizedException -> setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
+            is UserNotFoundException -> setLastErrorStringRes(R.string.auth_user_not_found)
+            is AmazonClientException -> setLastErrorStringRes(R.string.auth_client_exception)
+            is AmazonServiceException -> setLastErrorStringRes(R.string.auth_service_generic_exception)
+            else -> setLastErrorStringRes(R.string.auth_service_generic_exception)
         }
     }
 }
