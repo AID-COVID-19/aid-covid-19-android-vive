@@ -4,12 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.amazonaws.mobile.auth.core.IdentityManager
+import com.ai.covid19.tracking.android.R
+import com.ai.covid19.tracking.android.util.hasValidPasswordFormat
+import com.amazonaws.AmazonClientException
+import com.amazonaws.AmazonServiceException
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.Callback
 import com.amazonaws.mobile.client.results.SignInResult
 import com.amazonaws.mobile.client.results.SignInState
+import com.amazonaws.services.cognitoidentityprovider.model.NotAuthorizedException
+import com.amazonaws.services.cognitoidentityprovider.model.UserNotFoundException
 
 class AuthViewModel : ViewModel() {
 
@@ -17,6 +22,11 @@ class AuthViewModel : ViewModel() {
     var countryName:String? = null
     var phoneNumber:String? = null
     var phoneTemporalPassword:String? = null
+
+    // This is to prevent duplicate-operation errors, such as calling
+    // AWSMobileClient.getInstance().signIn() twice, which causes a crash:
+    private var isBusy = false
+
     val isTempSignIn = MutableLiveData<Boolean>()
 
     fun tempSigIn(value: Boolean) {
@@ -35,6 +45,12 @@ class AuthViewModel : ViewModel() {
         isNewPassDone.value = value
     }
 
+    val lastErrorStringRes = MutableLiveData<Int?>()
+
+    fun setLastErrorStringRes(newStringRes: Int?) = runOnUiThread {
+        lastErrorStringRes.value = newStringRes
+    }
+
     init {
         isTempSignIn.value = false
         isSignIn.value = false
@@ -45,13 +61,19 @@ class AuthViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun signIn(username: String, password: String) {
+    private fun signIn(username: String, password: String) {
+        if (isBusy)
+            return
+
+        isBusy = true
+
         AWSMobileClient.getInstance().signIn(
             username,
             password,
             null,
             object : Callback<SignInResult> {
                 override fun onResult(signInResult: SignInResult) {
+                    isBusy = false
                     runOnUiThread(Runnable {
                         Log.d(
                             this.javaClass.canonicalName,
@@ -60,33 +82,90 @@ class AuthViewModel : ViewModel() {
                         when (signInResult.signInState) {
                             SignInState.DONE -> sigIn(true)
                             SignInState.NEW_PASSWORD_REQUIRED -> tempSigIn(true)
-                            else -> Log.d(this.javaClass.canonicalName, "Unsupported sign-in confirmation: " + signInResult.signInState)
+                            else -> {
+                                Log.d(
+                                    this.javaClass.canonicalName,
+                                    "Unsupported sign-in confirmation: " + signInResult.signInState
+                                )
+                                setLastErrorStringRes(R.string.auth_service_generic_exception)
+                            }
                         }
                     })
                 }
 
-                override fun onError(e: java.lang.Exception) {
+                override fun onError(e: Exception) {
+                    isBusy = false
                     Log.e(this.javaClass.canonicalName, "Sign-in error", e)
+                    notifyRequestException(e)
                 }
             })
     }
 
-    fun confirmSignIn(newPass: String) {
+    private fun confirmSignIn(newPass: String) {
+        if (isBusy)
+            return
+
+        isBusy = true
+
         AWSMobileClient.getInstance()
             .confirmSignIn(newPass, object : Callback<SignInResult?> {
                 override fun onResult(result: SignInResult?) {
+                    isBusy = false
                     Log.d(this.javaClass.canonicalName, "Sign-in callback state: " + result!!.signInState)
                     when (result.signInState) {
                         SignInState.DONE ->  newPassDone(true)
                         SignInState.SMS_MFA ->  Log.d(this.javaClass.canonicalName, "Please confirm sign-in with SMS.")
-                        else ->  Log.d(this.javaClass.canonicalName, "Unsupported sign-in confirmation: " + result.signInState)
+                        else -> {
+                            Log.d(
+                                this.javaClass.canonicalName,
+                                "Unsupported sign-in confirmation: " + result.signInState
+                            )
+                            setLastErrorStringRes(R.string.auth_service_generic_exception)
+                        }
                     }
                 }
 
-                override fun onError(e: Exception?) {
-                    Log.e(this.javaClass.canonicalName, "Sign-in error", e)
+                override fun onError(e: Exception) {
+                    isBusy = false
+                    Log.e(this.javaClass.canonicalName, "Confirm sign-in error", e)
+                    notifyRequestException(e)
                 }
             })
 
+    }
+
+    fun onPhoneAndPasswordProvided(typedPhoneNumber: String, typedTempPassword: String) {
+        phoneNumber = typedPhoneNumber.trim()
+        phoneTemporalPassword = typedTempPassword
+
+        if (phoneNumber!!.isEmpty() || phoneTemporalPassword!!.isEmpty()) {
+            setLastErrorStringRes(R.string.auth_incomplete_fields)
+        } else {
+            signIn("+$countryCode$phoneNumber", phoneTemporalPassword!!)
+        }
+    }
+
+    fun onNewPasswordProvided(typedNewPassword: String) {
+        when {
+            typedNewPassword.isEmpty() -> {
+                setLastErrorStringRes(R.string.auth_no_password_provided)
+            }
+            !typedNewPassword.hasValidPasswordFormat() -> {
+                setLastErrorStringRes(R.string.auth_password_has_wrong_format)
+            }
+            else -> {
+                confirmSignIn(typedNewPassword)
+            }
+        }
+    }
+
+    private fun notifyRequestException(e: Exception) {
+        when (e) {
+            is NotAuthorizedException -> setLastErrorStringRes(R.string.auth_invalid_credentials_provided)
+            is UserNotFoundException -> setLastErrorStringRes(R.string.auth_user_not_found)
+            is AmazonClientException -> setLastErrorStringRes(R.string.auth_client_exception)
+            is AmazonServiceException -> setLastErrorStringRes(R.string.auth_service_generic_exception)
+            else -> setLastErrorStringRes(R.string.auth_service_generic_exception)
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -24,8 +25,8 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPhoneBinding.inflate(inflater,container, false)
-        binding.buttonAuthNext1.setOnClickListener{onNextButtonClicked()}
+        binding = FragmentPhoneBinding.inflate(inflater, container, false)
+        binding.buttonAuthNext1.setOnClickListener { onNextButtonClicked() }
         binding.countryCodePicker.setOnCountryChangeListener(this)
         binding.countryCodePicker.setAutoDetectedCountry(true)
         return binding.root
@@ -45,6 +46,14 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
                 activity?.finish()
             }
         })
+        viewModel.lastErrorStringRes.observe(
+            viewLifecycleOwner,
+            Observer {
+                it?.let {
+                    Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+                    viewModel.setLastErrorStringRes(null)
+                }
+            })
     }
 
     override fun onCountrySelected() {
@@ -53,8 +62,9 @@ class AuthPhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener 
     }
 
     private fun onNextButtonClicked() {
-        viewModel.phoneNumber = binding.editTextPhone.text.toString()
-        viewModel.phoneTemporalPassword = binding.editTextPassword.text.toString()
-        viewModel.signIn("+" + viewModel.countryCode + viewModel.phoneNumber, viewModel.phoneTemporalPassword!!)
+        viewModel.onPhoneAndPasswordProvided(
+            binding.editTextPhone.text.toString(),
+            binding.editTextPassword.text.toString()
+        )
     }
 }
