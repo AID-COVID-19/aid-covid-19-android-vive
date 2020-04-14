@@ -42,8 +42,6 @@ class CheckViewModel : ViewModel() {
 
     var temperatureRange: String? = null
     var breathsPerMinuteRange: String? = null
-    var bloodPressureLowValue: Int? = null
-    var bloodPressureHighValue: Int? = null
     var haveYouBeenNervousOrAnxious: String? = null
     var couldntStopBeingWorried: String? = null
     var haveYouWorriedTooMuchAboutDifferentThings: String? = null
