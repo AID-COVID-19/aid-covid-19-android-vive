@@ -108,13 +108,22 @@
     </style>
 
     <style name="GeneralCardView">
+        <item name="background">@color/colorBackgroundLight</item>
         <item name="android:layout_marginBottom">@dimen/activity_txt_margin_section</item>
         <item name="android:layout_marginTop">@dimen/activity_txt_margin_section</item>
         <item name="cardCornerRadius">5dp</item>
         <item name="cardElevation">3dp</item>
         <item name="contentPadding">4dp</item>
-        <item name="contentPaddingBottom">10dp</item>
+        <item name="contentPaddingBottom">14dp</item>
         <item name="contentPaddingTop">14dp</item>
+    </style>
+
+    <style name="CheckSummaryCardView">
+        <item name="background">@color/colorBackgroundLight</item>
+        <item name="android:layout_marginBottom">@dimen/activity_txt_margin_section</item>
+        <item name="android:layout_marginTop">@dimen/activity_txt_margin_section</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">3dp</item>
     </style>
 
     <style name="AppTheme.Chips" parent="Widget.MaterialComponents.Chip.Filter">

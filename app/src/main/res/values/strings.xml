@@ -113,4 +113,8 @@
     <string name="check_result_high_notice">Usted está en algo riesgo, llame inmediatamente a su médico o al 911.</string>
     <string name="check_result_disc">Editar y volver a evaluar</string>
     <string name="timer">Reloj</string>
+    <string name="card_summary_risk">0.967705 / Moderado Riesgo</string>
+    <string name="card_feel">Se siente mejor.</string>
+    <string name="card_symptom">malestar general | dolores musculares | perdida de sabor en los alimentos | picazón o dolor de garganta</string>
+    <string name="card_vital_signs">"T: 38º – 39º	|	R: 21 – 28"</string>
 </resources>
