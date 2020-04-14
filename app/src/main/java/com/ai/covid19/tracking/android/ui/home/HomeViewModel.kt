@@ -2,9 +2,9 @@ package com.ai.covid19.tracking.android.ui.home
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.amazonaws.amplify.generated.graphql.ListChecksQuery
-import com.amazonaws.amplify.generated.graphql.ListPatientProfilesQuery
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.config.AWSConfiguration
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient
@@ -15,6 +15,8 @@ import com.apollographql.apollo.exception.ApolloException
 import javax.annotation.Nonnull
 
 class HomeViewModel : ViewModel() {
+    val patientChecksLiveData = MutableLiveData<List<ListChecksQuery.Item>>()
+
     private var mAWSAppSyncClient: AWSAppSyncClient? = null
 
     fun createSynClient(context: Context) {
@@ -35,7 +37,12 @@ class HomeViewModel : ViewModel() {
     private val userChecksCallback: GraphQLCall.Callback<ListChecksQuery.Data?> =
         object : GraphQLCall.Callback<ListChecksQuery.Data?>() {
             override fun onResponse(@Nonnull response: Response<ListChecksQuery.Data?>) {
-                Log.i("Results", response.data()?.listChecks()?.items().toString())
+
+                val items = response.data()?.listChecks()?.items()
+
+                Log.i("Results", items.toString())
+
+                items?.let { patientChecksLiveData.postValue(it) }
             }
 
             override fun onFailure(@Nonnull e: ApolloException) {
