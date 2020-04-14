@@ -6,12 +6,13 @@
     android:id="@+id/fragment_check_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundLight"
     tools:context=".PatientCheckActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
         android:layout_margin="@dimen/fragment_margin"
-        android:background="@color/colorBackgroundLight"
         android:padding="@dimen/fragment_padding_extended">
 
         <TableLayout
@@ -104,64 +105,30 @@
                     android:text="@string/check_2_q_2_a_4"
                     android:textAppearance="@style/TextAppearance.Small" />
             </RadioGroup>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/activity_txt_margin_title_1"
-                    android:lines="2"
-                    android:text="@string/check_2_q_3"
-                    android:textAppearance="@style/TextAppearance.Large" />
-            <TableRow
-                android:layout_marginBottom="@dimen/activity_txt_margin_section"
-                android:layout_marginTop="@dimen/activity_txt_margin_section"
-                >
-
-                <EditText
-                    android:id="@+id/blood_pressure_max"
-                    android:layout_width="0dp"
-                    android:layout_column="1"
-                    android:layout_margin="4dp"
-                    android:layout_weight="1"
-                    android:hint="@string/check_2_q_3_a_1"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:autofillHints="@string/check_2_q_3_a_1"
-                    android:textAppearance="@style/TextAppearance.Medium" />
-
-                <EditText
-                    android:id="@+id/blood_pressure_min"
-                    android:layout_width="0dp"
-                    android:layout_margin="4dp"
-                    android:layout_weight="1"
-                    android:maxLength="3"
-                    android:gravity="end"
-                    android:hint="@string/check_2_q_3_a_2"
-                    android:autofillHints="@string/check_2_q_3_a_1"
-                    android:inputType="number"
-                    android:textAppearance="@style/TextAppearance.Medium" />
-            </TableRow>
         </TableLayout>
 
         <com.kusu.loadingbutton.LoadingButton
             android:id="@+id/button_next_check_2"
-            android:enabled="false"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/activity_txt_margin_section"
-            android:layout_marginBottom="@dimen/activity_txt_margin_section"
-            android:text="@string/next_title"
-            android:textColor="@color/colorFontForDarkBackground"
-            android:textAllCaps="false"
+            android:layout_marginBottom="16dp"
             android:elevation="@dimen/button_elevation"
+            android:enabled="false"
+            android:text="@string/next_title"
+            android:textAllCaps="false"
+            android:textColor="@color/colorFontForDarkBackground"
             android:textSize="16sp"
-            app:lb_buttonColor="@color/colorPrimary"
-            app:lb_isShadowEnable="true"
-            app:lb_isCircular="false"
-            app:lb_shadowColor="@color/colorRipple"
-            app:lb_shadowHeight="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+            app:layout_constraintVertical_bias="1.0"
+            app:lb_buttonColor="@color/colorPrimary"
+            app:lb_isCircular="false"
+            app:lb_isShadowEnable="true"
+            app:lb_shadowColor="@color/colorRipple"
+            app:lb_shadowHeight="2dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

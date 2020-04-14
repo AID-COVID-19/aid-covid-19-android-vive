@@ -1,33 +1,21 @@
 package com.ai.covid19.tracking.android.ui.check
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.ArrayMap
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheck2Binding
-import com.amazonaws.Response
-import com.amazonaws.amplify.generated.graphql.ListChecksQuery
 import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils
 import com.amazonaws.mobile.client.AWSMobileClient
-import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.hours
-import type.TableCheckFilterInput
-import type.TableIntFilterInput
 import type.UpdateCheckInput
 import javax.annotation.Nonnull
 
@@ -44,7 +32,6 @@ class Check2Fragment : Fragment() {
         binding = FragmentCheck2Binding.inflate(inflater, container, false)
         temperatureRangeSetup()
         breathRangeSetup()
-        bloodPleasureSetup()
         return binding.root
     }
 
@@ -89,40 +76,12 @@ class Check2Fragment : Fragment() {
         }
     }
 
-    private fun bloodPleasureSetup(){
-        binding.bloodPressureMax.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
-            }
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-                if (!s.isBlank())
-                    viewModelCheck.bloodPressureHighValue = s.toString().toInt()
-            }
-        })
-
-        binding.bloodPressureMax.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
-            }
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-                if (!s.isBlank())
-                    viewModelCheck.bloodPressureLowValue = s.toString().toInt()
-            }
-        })
-    }
-
     private fun saveCheck2() {
         val updateCheckInput = UpdateCheckInput.builder()
             .identityId(AWSMobileClient.getInstance().identityId)
             .checkTimestamp(viewModelCheck.timeStampLongId)
             .temperatureRange(viewModelCheck.temperatureRange)
             .breathsPerMinuteRange(viewModelCheck.breathsPerMinuteRange)
-            .bloodPressureHighValue(viewModelCheck.bloodPressureHighValue)
-            .bloodPressureLowValue(viewModelCheck.bloodPressureLowValue)
             .build()
         viewModelCheck.mAWSAppSyncClient?.mutate(UpdateCheckMutation.builder().input(updateCheckInput).build())
             ?.enqueue(mutationCallback)
@@ -138,8 +97,6 @@ class Check2Fragment : Fragment() {
         binding.temperatureRange2.isEnabled = isEnable
         binding.temperatureRange3.isEnabled = isEnable
         binding.temperatureRange4.isEnabled = isEnable
-        binding.bloodPressureMin.isEnabled = isEnable
-        binding.bloodPressureMax.isEnabled = isEnable
     }
 
     private val mutationCallback: GraphQLCall.Callback<UpdateCheckMutation.Data?> =
