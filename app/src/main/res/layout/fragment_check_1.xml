@@ -91,6 +91,7 @@
                         android:id="@+id/generalDiscomfort"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_1"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -100,6 +101,7 @@
                         android:id="@+id/itchyOrSoreThroat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_2"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -109,6 +111,7 @@
                         android:id="@+id/diarrhea"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_3"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -118,6 +121,7 @@
                         android:id="@+id/badTasteInTheMouth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_4"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -127,6 +131,7 @@
                         android:id="@+id/lossOfTasteInFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_5"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -136,6 +141,7 @@
                         android:id="@+id/lossOfSmell"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_6"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -145,6 +151,7 @@
                         android:id="@+id/musclePains"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_7"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -154,6 +161,7 @@
                         android:id="@+id/chestOrBackPain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_8"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -163,6 +171,7 @@
                         android:id="@+id/headache"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_9"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -172,6 +181,7 @@
                         android:id="@+id/wetCoughWithPhlegm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_10"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -181,6 +191,7 @@
                         android:id="@+id/dryCough"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_11"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -190,6 +201,7 @@
                         android:id="@+id/chill"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_12"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -199,6 +211,7 @@
                         android:id="@+id/fever"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_13"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -208,6 +221,7 @@
                         android:id="@+id/fatigueWhenWalkingOrClimbingStairs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_14"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -217,6 +231,7 @@
                         android:id="@+id/feelingShortOfBreathWithDailyActivities"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_15"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -226,6 +241,7 @@
                         android:id="@+id/respiratoryDistress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_17"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -235,6 +251,7 @@
                         android:id="@+id/confusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_18"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />
@@ -244,6 +261,7 @@
                         android:id="@+id/bluishLipsOrFace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Small"
                         android:text="@string/check_1_q_2_a_19"
                         app:checkedIconEnabled="true"
                         app:chipIcon="@drawable/ic_done_black_24dp" />

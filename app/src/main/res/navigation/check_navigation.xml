@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_alarm" >
         <action
             android:id="@+id/action_alarmFragment_to_check1Fragment"
-            app:destination="@id/check1Fragment" />
+            app:destination="@id/check1Fragment"/>
     </fragment>
     <fragment
         android:id="@+id/check1Fragment"
