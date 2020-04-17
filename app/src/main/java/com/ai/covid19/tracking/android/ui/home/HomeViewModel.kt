@@ -12,6 +12,8 @@ import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
 import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
+import type.TableCheckFilterInput
+import type.TableStringFilterInput
 import javax.annotation.Nonnull
 
 class HomeViewModel : ViewModel() {
@@ -28,7 +30,14 @@ class HomeViewModel : ViewModel() {
 
     fun requestUserChecksHistory() {
         mAWSAppSyncClient?.apply {
-            query(ListChecksQuery.builder().build())
+
+            val identityId = AWSMobileClient.getInstance().identityId
+
+            val filter = TableCheckFilterInput.builder().identityId(
+                TableStringFilterInput.builder().eq(identityId).build()
+            ).build()
+
+            query(ListChecksQuery.builder().filter(filter).build())
                 ?.responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 ?.enqueue(userChecksCallback)
         }
