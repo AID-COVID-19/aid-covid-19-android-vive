@@ -116,8 +116,9 @@ class CheckResultFragment : Fragment() {
     private fun saveResult(result: RiskAlgorithm.RiskClassification) {
         val updateCheckInput = UpdateCheckInput.builder()
             .identityId(AWSMobileClient.getInstance().identityId)
+            .checkTimestamp(viewModelCheck.timeStampLongId)
             .riskResult(result.toString())
-            .riskScore(viewModelCheck.riskScore.toDouble())
+            .riskScore(viewModelCheck.riskScore)
             .build()
         viewModelCheck.mAWSAppSyncClient?.mutate(UpdateCheckMutation.builder().input(updateCheckInput).build())
             ?.enqueue(mutationCallback)
