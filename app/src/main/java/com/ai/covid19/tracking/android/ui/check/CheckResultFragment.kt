@@ -13,6 +13,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheckResultBinding
+import com.ai.covid19.tracking.android.util.ORGANIZATION_ID
 import com.amazonaws.amplify.generated.graphql.*
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
@@ -250,7 +251,7 @@ class CheckResultFragment : Fragment() {
 
     private fun updateLastCheck() {
         val updateLastCheckInput = UpdateLastCheckInput.builder()
-            .organizationId("panama_test")
+            .organizationId(ORGANIZATION_ID)
             .identityId(AWSMobileClient.getInstance().identityId)
             .checkTimestamp(viewModelCheck.timeStampLongId)
             .riskResult(viewModelCheck.riskResult.toString())
@@ -294,7 +295,7 @@ class CheckResultFragment : Fragment() {
 
     private fun createLastCheck() {
         val updateLastCheckInput = CreateLastCheckInput.builder()
-            .organizationId("panama_test")
+            .organizationId(ORGANIZATION_ID)
             .identityId(AWSMobileClient.getInstance().identityId)
             .checkTimestamp(viewModelCheck.timeStampLongId)
             .riskResult(viewModelCheck.riskResult.toString())
