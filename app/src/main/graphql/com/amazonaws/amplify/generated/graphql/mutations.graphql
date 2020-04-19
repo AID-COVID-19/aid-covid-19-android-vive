@@ -1,94 +1,4 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateDiagnosisTable($input: CreateDiagnosisTableInput!) {
-  createDiagnosisTable(input: $input) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-mutation UpdateDiagnosisTable($input: UpdateDiagnosisTableInput!) {
-  updateDiagnosisTable(input: $input) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-mutation DeleteDiagnosisTable($input: DeleteDiagnosisTableInput!) {
-  deleteDiagnosisTable(input: $input) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-mutation CreatePatientProfile($input: CreatePatientProfileInput!) {
-  createPatientProfile(input: $input) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
-mutation UpdatePatientProfile($input: UpdatePatientProfileInput!) {
-  updatePatientProfile(input: $input) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
-mutation DeletePatientProfile($input: DeletePatientProfileInput!) {
-  deletePatientProfile(input: $input) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
 mutation CreateCheck($input: CreateCheckInput!) {
   createCheck(input: $input) {
     checkTimestamp
@@ -173,6 +83,132 @@ mutation UpdateCheck($input: UpdateCheckInput!) {
 }
 mutation DeleteCheck($input: DeleteCheckInput!) {
   deleteCheck(input: $input) {
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+mutation CreateLastCheck($input: CreateLastCheckInput!) {
+  createLastCheck(input: $input) {
+    organizationId
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+mutation UpdateLastCheck($input: UpdateLastCheckInput!) {
+  updateLastCheck(input: $input) {
+    organizationId
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+mutation DeleteLastCheck($input: DeleteLastCheckInput!) {
+  deleteLastCheck(input: $input) {
+    organizationId
     checkTimestamp
     identityId
     howYouFeel

@@ -1,166 +1,4 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateDiagnosisTable(
-  $id: String
-  $created_at: AWSTimestamp
-  $disease_under_observation: String
-  $doctor_id: String
-  $patient_id: String
-) {
-  onCreateDiagnosisTable(
-    id: $id
-    created_at: $created_at
-    disease_under_observation: $disease_under_observation
-    doctor_id: $doctor_id
-    patient_id: $patient_id
-  ) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-subscription OnUpdateDiagnosisTable(
-  $id: String
-  $created_at: AWSTimestamp
-  $disease_under_observation: String
-  $doctor_id: String
-  $patient_id: String
-) {
-  onUpdateDiagnosisTable(
-    id: $id
-    created_at: $created_at
-    disease_under_observation: $disease_under_observation
-    doctor_id: $doctor_id
-    patient_id: $patient_id
-  ) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-subscription OnDeleteDiagnosisTable(
-  $id: String
-  $created_at: AWSTimestamp
-  $disease_under_observation: String
-  $doctor_id: String
-  $patient_id: String
-) {
-  onDeleteDiagnosisTable(
-    id: $id
-    created_at: $created_at
-    disease_under_observation: $disease_under_observation
-    doctor_id: $doctor_id
-    patient_id: $patient_id
-  ) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-subscription OnCreatePatientProfile(
-  $id: String
-  $name: String
-  $lastname: String
-  $date_of_birth: AWSDateTime
-  $postal_code: String
-) {
-  onCreatePatientProfile(
-    id: $id
-    name: $name
-    lastname: $lastname
-    date_of_birth: $date_of_birth
-    postal_code: $postal_code
-  ) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
-subscription OnUpdatePatientProfile(
-  $id: String
-  $name: String
-  $lastname: String
-  $date_of_birth: AWSDateTime
-  $postal_code: String
-) {
-  onUpdatePatientProfile(
-    id: $id
-    name: $name
-    lastname: $lastname
-    date_of_birth: $date_of_birth
-    postal_code: $postal_code
-  ) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
-subscription OnDeletePatientProfile(
-  $id: String
-  $name: String
-  $lastname: String
-  $date_of_birth: AWSDateTime
-  $postal_code: String
-) {
-  onDeletePatientProfile(
-    id: $id
-    name: $name
-    lastname: $lastname
-    date_of_birth: $date_of_birth
-    postal_code: $postal_code
-  ) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
 subscription OnCreateCheck(
   $checkTimestamp: AWSTimestamp
   $identityId: String
@@ -281,6 +119,168 @@ subscription OnDeleteCheck(
     generalDiscomfort: $generalDiscomfort
     itchyOrSoreThroat: $itchyOrSoreThroat
   ) {
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+subscription OnCreateLastCheck(
+  $organizationId: String
+  $checkTimestamp: AWSTimestamp
+  $identityId: String
+  $howYouFeel: String
+  $generalDiscomfort: Boolean
+) {
+  onCreateLastCheck(
+    organizationId: $organizationId
+    checkTimestamp: $checkTimestamp
+    identityId: $identityId
+    howYouFeel: $howYouFeel
+    generalDiscomfort: $generalDiscomfort
+  ) {
+    organizationId
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+subscription OnUpdateLastCheck(
+  $organizationId: String
+  $checkTimestamp: AWSTimestamp
+  $identityId: String
+  $howYouFeel: String
+  $generalDiscomfort: Boolean
+) {
+  onUpdateLastCheck(
+    organizationId: $organizationId
+    checkTimestamp: $checkTimestamp
+    identityId: $identityId
+    howYouFeel: $howYouFeel
+    generalDiscomfort: $generalDiscomfort
+  ) {
+    organizationId
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+subscription OnDeleteLastCheck(
+  $organizationId: String
+  $checkTimestamp: AWSTimestamp
+  $identityId: String
+  $howYouFeel: String
+  $generalDiscomfort: Boolean
+) {
+  onDeleteLastCheck(
+    organizationId: $organizationId
+    checkTimestamp: $checkTimestamp
+    identityId: $identityId
+    howYouFeel: $howYouFeel
+    generalDiscomfort: $generalDiscomfort
+  ) {
+    organizationId
     checkTimestamp
     identityId
     howYouFeel

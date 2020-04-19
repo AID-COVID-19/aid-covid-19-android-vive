@@ -13,8 +13,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.ai.covid19.tracking.android.R
 import com.ai.covid19.tracking.android.databinding.FragmentCheckResultBinding
-import com.amazonaws.amplify.generated.graphql.ListChecksQuery
-import com.amazonaws.amplify.generated.graphql.UpdateCheckMutation
+import com.amazonaws.amplify.generated.graphql.*
 import com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers
@@ -22,9 +21,7 @@ import com.apollographql.apollo.GraphQLCall
 import com.apollographql.apollo.exception.ApolloException
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.hours
-import type.TableCheckFilterInput
-import type.TableIntFilterInput
-import type.UpdateCheckInput
+import type.*
 import java.math.BigDecimal
 import java.math.RoundingMode
 import javax.annotation.Nonnull
@@ -51,6 +48,7 @@ class CheckResultFragment : Fragment() {
             binding.buttonEnd.isEnabled = false
             binding.buttonEnd.showLoading()
             saveResult(viewModelCheck.riskResult)
+            queryLastCheck()
             activity?.finish()
         }
         val listenerDiscard: (View) -> Unit = {
@@ -226,4 +224,115 @@ class CheckResultFragment : Fragment() {
 
         return sigmoideAlgorithm.calculate(scoreList)
     }
+
+    private fun queryLastCheck() {
+        val filter = TableLastCheckFilterInput.builder().identityId(
+            TableStringFilterInput.builder().eq(AWSMobileClient.getInstance().identityId).build()
+        ).build()
+        viewModelCheck.mAWSAppSyncClient?.query(ListLastChecksQuery.builder().filter(filter).build())
+            ?.responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+            ?.enqueue(callbackLastCheck)
+    }
+
+    private val callbackLastCheck: GraphQLCall.Callback<ListLastChecksQuery.Data?> =
+        object : GraphQLCall.Callback<ListLastChecksQuery.Data?>() {
+            override fun onFailure(@Nonnull e: ApolloException) {
+                Log.e("ERROR", e.toString())
+            }
+            override fun onResponse(response: com.apollographql.apollo.api.Response<ListLastChecksQuery.Data?>) {
+                if(response.data()!!.listLastChecks()!!.items()!!.size != 0) {
+                    updateLastCheck()
+                } else {
+                    createLastCheck()
+                }
+            }
+        }
+
+    private fun updateLastCheck() {
+        val updateLastCheckInput = UpdateLastCheckInput.builder()
+            .organizationId("panama_test")
+            .identityId(AWSMobileClient.getInstance().identityId)
+            .checkTimestamp(viewModelCheck.timeStampLongId)
+            .riskResult(viewModelCheck.riskResult.toString())
+            .riskScore(viewModelCheck.riskScore)
+            .temperatureRange(viewModelCheck.temperatureRange)
+            .breathsPerMinuteRange(viewModelCheck.breathsPerMinuteRange)
+            .howYouFeel(viewModelCheck.howYouFeel)
+            .generalDiscomfort(viewModelCheck.generalDiscomfort)
+            .itchyOrSoreThroat(viewModelCheck.itchyOrSoreThroat)
+            .diarrhea(viewModelCheck.diarrhea)
+            .badTasteInTheMouth(viewModelCheck.badTasteInTheMouth)
+            .lossOfTasteInFood(viewModelCheck.lossOfTasteInFood)
+            .lossOfSmell(viewModelCheck.lossOfSmell)
+            .musclePains(viewModelCheck.musclePains)
+            .chestOrBackPain(viewModelCheck.chestOrBackPain)
+            .headache(viewModelCheck.headache)
+            .wetCoughWithPhlegm(viewModelCheck.wetCoughWithPhlegm)
+            .dryCough(viewModelCheck.dryCough)
+            .chill(viewModelCheck.chill)
+            .fever(viewModelCheck.fever)
+            .fatigueWhenWalkingOrClimbingStairs(viewModelCheck.fatigueWhenWalkingOrClimbingStairs)
+            .feelingShortOfBreathWithDailyActivities(viewModelCheck.feelingShortOfBreathWithDailyActivities)
+            .respiratoryDistress(viewModelCheck.respiratoryDistress)
+            .confusion(viewModelCheck.newConfusionOrInabilityToArouse)
+            .bluishLipsOrFace(viewModelCheck.bluishLipsOrFace)
+            .otherSymptomsOrDiscomfort(viewModelCheck.otherSymptomsOrDiscomfort).build()
+
+        viewModelCheck.mAWSAppSyncClient?.mutate(UpdateLastCheckMutation.builder().input(updateLastCheckInput).build())
+            ?.enqueue(mutationCallbackUpdateLastCheck)
+    }
+
+    private val mutationCallbackUpdateLastCheck: GraphQLCall.Callback<UpdateLastCheckMutation.Data?> =
+        object : GraphQLCall.Callback<UpdateLastCheckMutation.Data?>() {
+            override fun onFailure(@Nonnull e: ApolloException) {
+                Log.e("Error", e.toString())
+            }
+            override fun onResponse(response: com.apollographql.apollo.api.Response<UpdateLastCheckMutation.Data?>) {
+                Log.i(this.javaClass.canonicalName , "Last check was added to database.");
+            }
+        }
+
+    private fun createLastCheck() {
+        val updateLastCheckInput = CreateLastCheckInput.builder()
+            .organizationId("panama_test")
+            .identityId(AWSMobileClient.getInstance().identityId)
+            .checkTimestamp(viewModelCheck.timeStampLongId)
+            .riskResult(viewModelCheck.riskResult.toString())
+            .riskScore(viewModelCheck.riskScore)
+            .temperatureRange(viewModelCheck.temperatureRange)
+            .breathsPerMinuteRange(viewModelCheck.breathsPerMinuteRange)
+            .howYouFeel(viewModelCheck.howYouFeel)
+            .generalDiscomfort(viewModelCheck.generalDiscomfort)
+            .itchyOrSoreThroat(viewModelCheck.itchyOrSoreThroat)
+            .diarrhea(viewModelCheck.diarrhea)
+            .badTasteInTheMouth(viewModelCheck.badTasteInTheMouth)
+            .lossOfTasteInFood(viewModelCheck.lossOfTasteInFood)
+            .lossOfSmell(viewModelCheck.lossOfSmell)
+            .musclePains(viewModelCheck.musclePains)
+            .chestOrBackPain(viewModelCheck.chestOrBackPain)
+            .headache(viewModelCheck.headache)
+            .wetCoughWithPhlegm(viewModelCheck.wetCoughWithPhlegm)
+            .dryCough(viewModelCheck.dryCough)
+            .chill(viewModelCheck.chill)
+            .fever(viewModelCheck.fever)
+            .fatigueWhenWalkingOrClimbingStairs(viewModelCheck.fatigueWhenWalkingOrClimbingStairs)
+            .feelingShortOfBreathWithDailyActivities(viewModelCheck.feelingShortOfBreathWithDailyActivities)
+            .respiratoryDistress(viewModelCheck.respiratoryDistress)
+            .confusion(viewModelCheck.newConfusionOrInabilityToArouse)
+            .bluishLipsOrFace(viewModelCheck.bluishLipsOrFace)
+            .otherSymptomsOrDiscomfort(viewModelCheck.otherSymptomsOrDiscomfort).build()
+
+        viewModelCheck.mAWSAppSyncClient?.mutate(CreateLastCheckMutation.builder().input(updateLastCheckInput).build())
+            ?.enqueue(mutationCallbackCreateLastCheck)
+    }
+
+    private val mutationCallbackCreateLastCheck: GraphQLCall.Callback<CreateLastCheckMutation.Data?> =
+        object : GraphQLCall.Callback<CreateLastCheckMutation.Data?>() {
+            override fun onFailure(@Nonnull e: ApolloException) {
+                Log.e("Error", e.toString())
+            }
+            override fun onResponse(response: com.apollographql.apollo.api.Response<CreateLastCheckMutation.Data?>) {
+                Log.i(this.javaClass.canonicalName , "Last check was added to database.");
+            }
+        }
 }

@@ -1,78 +1,4 @@
 # this is an auto generated file. This will be overwritten
-query GetDiagnosisTable($id: String!) {
-  getDiagnosisTable(id: $id) {
-    id
-    created_at
-    disease_under_observation
-    doctor_id
-    patient_id
-    status
-    treatment
-  }
-}
-query ListDiagnosisTables(
-  $filter: TableDiagnosisTableFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listDiagnosisTables(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      created_at
-      disease_under_observation
-      doctor_id
-      patient_id
-      status
-      treatment
-    }
-    nextToken
-  }
-}
-query GetPatientProfile($id: String!) {
-  getPatientProfile(id: $id) {
-    id
-    name
-    lastname
-    date_of_birth
-    postal_code
-    country
-    state
-    city
-    address
-    google_full_address
-    address_geo_point
-    gender
-    height
-    mobile_phone
-    other_phone
-  }
-}
-query ListPatientProfiles(
-  $filter: TablePatientProfileFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listPatientProfiles(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      lastname
-      date_of_birth
-      postal_code
-      country
-      state
-      city
-      address
-      google_full_address
-      address_geo_point
-      gender
-      height
-      mobile_phone
-      other_phone
-    }
-    nextToken
-  }
-}
 query GetCheck($identityId: String!, $checkTimestamp: AWSTimestamp!) {
   getCheck(identityId: $identityId, checkTimestamp: $checkTimestamp) {
     checkTimestamp
@@ -121,6 +47,150 @@ query ListChecks(
 ) {
   listChecks(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      checkTimestamp
+      identityId
+      howYouFeel
+      generalDiscomfort
+      itchyOrSoreThroat
+      diarrhea
+      badTasteInTheMouth
+      lossOfTasteInFood
+      lossOfSmell
+      musclePains
+      chestOrBackPain
+      headache
+      wetCoughWithPhlegm
+      dryCough
+      chill
+      fever
+      fatigueWhenWalkingOrClimbingStairs
+      feelingShortOfBreathWithDailyActivities
+      feelingOfStrainingToBreathe
+      respiratoryDistress
+      confusion
+      bluishLipsOrFace
+      otherSymptomsOrDiscomfort
+      temperatureRange
+      breathsPerMinuteRange
+      bloodPressureLowValue
+      bloodPressureHighValue
+      haveYouBeenNervousOrAnxious
+      CouldntStopBeingWorried
+      HaveYouWorriedTooMuchAboutDifferentThings
+      HaveYouHadDifficultyRelaxing
+      HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+      HaveYouBecomeEasilyAnnoyedOrIrritable
+      HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+      AreYouTakingYourMedications
+      RiskResult
+      RiskScore
+    }
+    nextToken
+  }
+}
+query GetLastCheck($identityId: String!) {
+  getLastCheck(identityId: $identityId) {
+    organizationId
+    checkTimestamp
+    identityId
+    howYouFeel
+    generalDiscomfort
+    itchyOrSoreThroat
+    diarrhea
+    badTasteInTheMouth
+    lossOfTasteInFood
+    lossOfSmell
+    musclePains
+    chestOrBackPain
+    headache
+    wetCoughWithPhlegm
+    dryCough
+    chill
+    fever
+    fatigueWhenWalkingOrClimbingStairs
+    feelingShortOfBreathWithDailyActivities
+    feelingOfStrainingToBreathe
+    respiratoryDistress
+    confusion
+    bluishLipsOrFace
+    otherSymptomsOrDiscomfort
+    temperatureRange
+    breathsPerMinuteRange
+    bloodPressureLowValue
+    bloodPressureHighValue
+    haveYouBeenNervousOrAnxious
+    CouldntStopBeingWorried
+    HaveYouWorriedTooMuchAboutDifferentThings
+    HaveYouHadDifficultyRelaxing
+    HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+    HaveYouBecomeEasilyAnnoyedOrIrritable
+    HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+    AreYouTakingYourMedications
+    RiskResult
+    RiskScore
+  }
+}
+query ListLastChecks(
+  $filter: TableLastCheckFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listLastChecks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      organizationId
+      checkTimestamp
+      identityId
+      howYouFeel
+      generalDiscomfort
+      itchyOrSoreThroat
+      diarrhea
+      badTasteInTheMouth
+      lossOfTasteInFood
+      lossOfSmell
+      musclePains
+      chestOrBackPain
+      headache
+      wetCoughWithPhlegm
+      dryCough
+      chill
+      fever
+      fatigueWhenWalkingOrClimbingStairs
+      feelingShortOfBreathWithDailyActivities
+      feelingOfStrainingToBreathe
+      respiratoryDistress
+      confusion
+      bluishLipsOrFace
+      otherSymptomsOrDiscomfort
+      temperatureRange
+      breathsPerMinuteRange
+      bloodPressureLowValue
+      bloodPressureHighValue
+      haveYouBeenNervousOrAnxious
+      CouldntStopBeingWorried
+      HaveYouWorriedTooMuchAboutDifferentThings
+      HaveYouHadDifficultyRelaxing
+      HaveYouBeenSoRestlessThatItIsDifficultToStayStill
+      HaveYouBecomeEasilyAnnoyedOrIrritable
+      HaveYouFeltFearAsIfSomethingHorribleWasGoingToHappen
+      AreYouTakingYourMedications
+      RiskResult
+      RiskScore
+    }
+    nextToken
+  }
+}
+query QueryLastChecksByIdentityIdCheckTimestampIndex(
+  $organizationId: String!
+  $first: Int
+  $after: String
+) {
+  queryLastChecksByIdentityIdCheckTimestampIndex(
+    organizationId: $organizationId
+    first: $first
+    after: $after
+  ) {
+    items {
+      organizationId
       checkTimestamp
       identityId
       howYouFeel
