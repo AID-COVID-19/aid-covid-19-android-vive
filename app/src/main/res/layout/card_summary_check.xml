@@ -20,23 +20,6 @@
            android:layout_marginTop="@dimen/activity_txt_margin_section"
            android:weightSum="1">
            <TextView
-               android:id="@+id/txtRisk"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:gravity="start|center_vertical"
-               android:text="@string/card_summary_risk"
-               android:textAppearance="@style/TextAppearance.Medium"
-               />
-           <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:layout_marginStart="@dimen/activity_txt_margin_paragraph"
-               android:layout_weight="1"
-               android:layout_gravity="start|center_vertical"
-               android:src="@drawable/ic_watch_later_black_18dp">
-           </ImageView>
-           <TextView
                android:id="@+id/textTime"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -45,11 +28,31 @@
                android:layout_gravity="end|center_vertical"
                android:gravity="end"
                android:text="@string/hour_alarm_content"
-               android:textAppearance="@style/TextAppearance.Medium"
+               android:textAppearance="@style/TextAppearance.Small"
                />
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="@dimen/activity_txt_margin_paragraph"
+               android:layout_weight="1"
+               android:layout_gravity="end|top"
+               android:src="@drawable/ic_watch_later_black_18dp"
+               android:contentDescription="@string/timer">
+           </ImageView>
        </LinearLayout>
         <TextView
+            android:id="@+id/txtRisk"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/activity_txt_margin_title_1"
+            android:gravity="start|center_vertical"
+            android:text="@string/card_summary_risk"
+            android:textAppearance="@style/TextAppearance.Medium"
+            />
+        <TextView
             android:id="@+id/txtName"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_txt_margin_section"

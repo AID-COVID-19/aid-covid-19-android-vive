@@ -58,15 +58,15 @@
     <string name="next_title">Siguiente</string>
     <string name="check_1_q_3">Escriba otros síntomas o molestias</string>
     <string name="check_2_q_1">¿Cuál es su temperatura corporal en grados celsius (ºC)?</string>
-    <string name="check_2_q_1_a_1">menor a 37.5º</string>
+    <string name="check_2_q_1_a_1">menor que 37.5º</string>
     <string name="check_2_q_1_a_2">entre 37.5º y 37.9º</string>
     <string name="check_2_q_1_a_3">entre 38º y 39º</string>
-    <string name="check_2_q_1_a_4">mayor a 39º</string>
+    <string name="check_2_q_1_a_4">mayor que 39º</string>
     <string name="check_2_q_2">"*¿Cuántas respiraciones por minuto, tiene en este momento"</string>
-    <string name="check_2_q_2_a_1">menor a 14</string>
+    <string name="check_2_q_2_a_1">menor que 14</string>
     <string name="check_2_q_2_a_2">entre 14 y 20</string>
     <string name="check_2_q_2_a_3">entre 21 y 28</string>
-    <string name="check_2_q_2_a_4">mayor a 28</string>
+    <string name="check_2_q_2_a_4">mayor que 28</string>
     <string name="check_2_q_3">¿En cuanto está su presión arterial en éste momento?</string>
     <string name="check_2_q_3_a_1">valor mayor</string>
     <string name="check_2_q_3_a_2">valor menor</string>
@@ -117,4 +117,13 @@
     <string name="card_feel">Se siente mejor.</string>
     <string name="card_symptom">malestar general | dolores musculares | perdida de sabor en los alimentos | picazón o dolor de garganta</string>
     <string name="card_vital_signs">"T: 38º – 39º	|	R: 21 – 28"</string>
+    <string name="card_feel_pro">"Se siente "</string>
+    <string name="card_vital_signs_T_1">"menor que 37.5º"</string>
+    <string name="card_vital_signs_T_2">37.5º - 37.9º</string>
+    <string name="card_vital_signs_T_3">38º - 39º</string>
+    <string name="card_vital_signs_T_4">mayor que 39º</string>
+    <string name="card_vital_signs_R_1">menor que 14</string>
+    <string name="card_vital_signs_R_2">"14 – 20"</string>
+    <string name="card_vital_signs_R_3">"21 – 28"</string>
+    <string name="card_vital_signs_R_4">mayor que 28</string>
 </resources>

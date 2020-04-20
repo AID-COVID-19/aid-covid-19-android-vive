@@ -20,7 +20,7 @@ class AuthActivity : AppCompatActivity() {
                 override fun onResult(userStateDetails: UserStateDetails) {
                     when (userStateDetails.userState) {
                         UserState.SIGNED_IN -> runOnUiThread {
-                            val intent = Intent(baseContext, MainActivity::class.java)
+                            val intent = Intent(baseContext, DoctorMainActivity::class.java)
                             startActivity(intent)
                             finish()
                         }
